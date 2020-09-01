@@ -1,0 +1,57 @@
+@import url('<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">');
+body{
+   font-family: 'Source Sans Pro', sans-serif;
+}
+#jumbosize{
+    padding: 0rem 5rem;
+    
+}
+
+#extra{
+    width: auto;
+    border: 0px;
+    text-align: center;
+}
+form{
+    border: 0px solid white;
+}
+
+label{
+    font-size: 2rem;
+}
+
+::placeholder { color: lightgrey; }
+
+input{
+    border-radius: 5px;
+    border: 1px solid darkgrey
+}
+
+.botoninicio{
+    color:white;
+    padding: 10px 16px;
+    font-size: 16px;
+    line-height: 20px;
+    border-radius: 12px;
+    background-color: rgb(56, 55, 55);
+}
+
+.jumbfuncionamiento{
+    background-color: white;
+    padding-top: 0.5rem;
+}
+
+
+img{
+    max-width: 5rem;
+    width: 50%;
+    padding-top: 0.3rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.card{
+    text-align: center;
+}
