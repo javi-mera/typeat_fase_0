@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../../styles/search.scss";
 
-export const Buscador = props => {
+export const MainForm = props => {
 	console.log(props);
 	return (
 		<div className="container cont_width">
