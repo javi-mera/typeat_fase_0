@@ -24,6 +24,16 @@ export const MainForm = props => {
 						placeholder="Another input placeholder"
 					/>
 				</div>
+				<div className="col">
+					<button
+						type="button"
+						className="botoninicio"
+						onSubmit={() => {
+							console.log("hola");
+						}}>
+						Vamos a ello!
+					</button>
+				</div>
 			</div>
 		</div>
 	);
