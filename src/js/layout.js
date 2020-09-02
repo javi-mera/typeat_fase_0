@@ -9,6 +9,7 @@ import { SignUp } from "./views/signUp";
 import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { Search } from "./views/search";
 
 //create your first component
 const Layout = () => {
@@ -36,6 +37,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/signup/">
 							<SignUp />
+						</Route>
+						<Route exact path="/search/">
+							<Search />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

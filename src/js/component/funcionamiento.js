@@ -15,10 +15,8 @@ export const Funcionamiento = () => {
 						<div className="card-body">
 							<h5 className="card-title">Encuentra</h5>
 							<p className="card-text">
-								Encuentra los platos típicos de tus xonas favoritas usando nuestro buscador.
-							</p>
-							<p className="card-text">
-								<small className="text-muted">Last updated 3 mins ago</small>
+								Encuentra los platos típicos de tus zonas favoritas usando nuestro buscador. Selecciona
+								por zona, por plato típico o por ambos.
 							</p>
 						</div>
 					</div>
@@ -30,9 +28,6 @@ export const Funcionamiento = () => {
 								Elige los platos típicos de la zona seleccionada en función de su valoración y
 								distancia.
 							</p>
-							<p className="card-text">
-								<small className="text-muted">Last updated 3 mins ago</small>
-							</p>
 						</div>
 					</div>
 					<div className="card">
@@ -41,9 +36,6 @@ export const Funcionamiento = () => {
 							<h5 className="card-title">Y disfruta!</h5>
 							<p className="card-text">
 								Acércate a disfrutar tu plato típico favorito y comparte tu experiencia.
-							</p>
-							<p className="card-text">
-								<small className="text-muted">Last updated 3 mins ago</small>
 							</p>
 						</div>
 					</div>
