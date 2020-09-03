@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/jumbotron.scss";
+import { MainForm } from "./mainform";
 
 export const RestaurantSearchForm = () => {
 	return (
@@ -13,14 +14,8 @@ export const RestaurantSearchForm = () => {
 			<div className="form-group" id="plato">
 				<input type="text" className="forminput" id="formGroupExampleInput2" placeholder="Migas" />
 			</div>
-
 			<Link to="/search/">
-				<button
-					type="button"
-					className="botoninicio"
-					onSubmit={() => {
-						console.log("hola");
-					}}>
+				<button type="button" className="botoninicio" onSubmit={() => {}}>
 					Vamos a ello!
 				</button>
 			</Link>

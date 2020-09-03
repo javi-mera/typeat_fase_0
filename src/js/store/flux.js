@@ -1,6 +1,8 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			users: [],
+			dishes: [],
 			demo: [
 				{
 					title: "FIRST",
@@ -15,6 +17,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
+			loadContacts: async () => {
+				let users_charge = [];
+				let url = "https://jsonplaceholder.typicode.com/posts";
+				let response = await fetch(url);
+				let respJson = await response.json();
+				//console.log(respJson);
+				users_charge = respJson;
+				//console.log(users_charge);
+				setStore({ users: users_charge });
+			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
