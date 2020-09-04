@@ -3,19 +3,42 @@ import "../../styles/home.scss";
 import { MainForm } from "../component/mainform";
 import { Dishes } from "../component/dishes";
 import { Context } from "../store/appContext";
-
-//import Maps from "../component/maps";
+import { Button } from "react-bootstrap";
 
 export const Search = () => {
 	const { store, actions } = useContext(Context);
+	const [indexTop, setIndexTop] = useState(4);
+	const indexBottom = indexTop - 4;
 	return (
-		<div className="text-center mt-5">
-			<MainForm />
-			<div>
+		<div>
+			<div className="jumbotron alinearform">
+				<MainForm />
+			</div>
+			<div className="container cont_width dishcard">
 				{store.users.map((e, index) => {
-					//console.log(e);
-					return <Dishes key={index} users={e} />;
+					if (index <= indexTop && index > indexBottom) {
+						console.log(index);
+						return <Dishes key={index} users={e} />;
+					}
 				})}
+			</div>
+			<div className="contButt">
+				<Button
+					href=""
+					className="alignbutton m-1 bg-dark"
+					onClick={() => {
+						setIndexTop(indexTop - 5);
+					}}>
+					Previous
+				</Button>
+				<Button
+					href=""
+					className="alignbutton m-1 bg-dark"
+					onClick={() => {
+						setIndexTop(indexTop + 5);
+					}}>
+					Next
+				</Button>
 			</div>
 		</div>
 	);

@@ -25,8 +25,8 @@ export const MainForm = props => {
 				</div>
 				<div className="col justify-content-center alignbutton">
 					<br />
-					<br />
-					<button type="button" className="botoninicio" onSubmit={() => {}}>
+
+					<button type="button" className="botoninicio botond" onSubmit={() => {}}>
 						Vamos a ello!
 					</button>
 				</div>
