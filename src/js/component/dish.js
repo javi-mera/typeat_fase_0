@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 
-export const Dishes = users => {
+export const Dish = users => {
 	const { store, actions } = useContext(Context);
 	//console.log(users);
 

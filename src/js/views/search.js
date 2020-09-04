@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import "../../styles/home.scss";
 import { MainForm } from "../component/mainform";
-import { Dishes } from "../component/dishes";
+import { Dish } from "../component/dish";
 import { Context } from "../store/appContext";
 import { Button } from "react-bootstrap";
 
@@ -18,7 +18,7 @@ export const Search = () => {
 				{store.users.map((e, index) => {
 					if (index <= indexTop && index > indexBottom) {
 						console.log(index);
-						return <Dishes key={index} users={e} />;
+						return <Dish key={index} users={e} />;
 					}
 				})}
 			</div>
