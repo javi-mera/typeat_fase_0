@@ -1,4 +1,5 @@
 @import url('<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">');
+
 body{
    font-family: 'Source Sans Pro', sans-serif;
 }
@@ -11,11 +12,15 @@ body{
     width: auto;
     border: 0px;
     text-align: center;
+
 }
 form{
     border: 0px solid white;
-    
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS5dDNBxkxpoi0yDgfVCnqibBJnZfEyBc0Vpg&usqp=CAU"); 
+    background-size:cover;
+    color:white
 }
+
 
 label{
     font-size: 2rem;
