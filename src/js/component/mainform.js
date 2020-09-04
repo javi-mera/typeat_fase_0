@@ -5,7 +5,7 @@ export const MainForm = props => {
 	return (
 		<div className="container cont_width">
 			<div className="row">
-				<div className="col">
+				<div className="col text-center">
 					<label htmlFor="formGroupExampleInput">Lugar</label>
 					<input
 						type="text"
@@ -14,7 +14,7 @@ export const MainForm = props => {
 						placeholder="Example input placeholder"
 					/>
 				</div>
-				<div className="col">
+				<div className="col text-center">
 					<label htmlFor="formGroupExampleInput2">Plato típico </label>
 					<input
 						type="text"
@@ -23,10 +23,13 @@ export const MainForm = props => {
 						placeholder="Another input placeholder"
 					/>
 				</div>
-				<div className="col justify-content-center alignbutton">
+				<div className="col text-center">
 					<br />
 
-					<button type="button" className="botoninicio botond" onSubmit={() => {}}>
+					<button
+						type="button"
+						className="botoninicio botond  justify-content-center alignbutton"
+						onSubmit={() => {}}>
 						Vamos a ello!
 					</button>
 				</div>
