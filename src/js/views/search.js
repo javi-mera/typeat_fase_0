@@ -14,31 +14,44 @@ export const Search = () => {
 			<div className="jumbotron alinearform">
 				<MainForm />
 			</div>
-			<div className="container cont_width dishcard">
-				{store.users.map((e, index) => {
-					if (index <= indexTop && index > indexBottom) {
-						console.log(index);
-						return <Dish key={index} users={e} />;
-					}
-				})}
-			</div>
-			<div className="contButt">
-				<Button
-					href=""
-					className="alignbutton m-1 bg-dark"
-					onClick={() => {
-						setIndexTop(indexTop - 5);
-					}}>
-					Previous
-				</Button>
-				<Button
-					href=""
-					className="alignbutton m-1 bg-dark"
-					onClick={() => {
-						setIndexTop(indexTop + 5);
-					}}>
-					Next
-				</Button>
+			<div className="row">
+				<div className="card col-6">
+					<div className="container cont_width dishcard">
+						{store.users.map((e, index) => {
+							if (index <= indexTop && index > indexBottom) {
+								console.log(index);
+								return <Dish key={index} users={e} />;
+							}
+						})}
+					</div>
+					<div className="card-footer">
+						<div className="d-flex justify-content-between ">
+							<Button
+								href=""
+								className="alignbutton m-1 bg-dark"
+								onClick={() => {
+									setIndexTop(indexTop - 5);
+								}}>
+								Previous
+							</Button>
+							<Button
+								href=""
+								className="alignbutton m-1 bg-dark"
+								onClick={() => {
+									setIndexTop(indexTop + 5);
+								}}>
+								Next
+							</Button>
+						</div>
+					</div>
+				</div>
+				<div className="col-6">
+					<img
+						className="card-img-center"
+						src="https://cdn.autobild.es/sites/navi.axelspringer.es/public/styles/480/public/media/image/2016/05/543113-asi-funciona-google-maps-conexion-internet.jpg?itok=zLmKOPKf"
+						alt="Card image cap"
+					/>
+				</div>
 			</div>
 		</div>
 	);

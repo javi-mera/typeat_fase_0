@@ -8,7 +8,7 @@ export const Dish = users => {
 	return (
 		<div className="container dishcard">
 			<div className="row">
-				<div className="col-7">
+				<div className="col-6">
 					<h5 className="card-header">Plato: {users.users.title}</h5>
 					<div className="card-body">
 						<h5 className="card-title">id: {users.users.id}</h5>
