@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 
 export const Dish = users => {
 	const { store, actions } = useContext(Context);
@@ -13,9 +14,11 @@ export const Dish = users => {
 					<div className="card-body">
 						<h5 className="card-title">id: {users.users.id}</h5>
 						<p className="card-text">descripción: {users.users.body}</p>
-						<a href="#" className="btn btn-primary">
-							Más info
-						</a>
+						<Link to={"/searchresult/" + users.users.id}>
+							<button type="button" className="btn btn-primary">
+								Más info
+							</button>
+						</Link>
 					</div>
 				</div>
 			</div>

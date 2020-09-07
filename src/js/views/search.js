@@ -11,7 +11,7 @@ export const Search = () => {
 	const [indexTop, setIndexTop] = useState(4);
 	const indexBottom = indexTop - 4;
 	return (
-		<div>
+		<div className="fondo">
 			<div className="jumbotron alinearform">
 				<MainForm />
 			</div>
