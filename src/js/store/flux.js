@@ -3,6 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			users: [],
 			dishes: [],
+			formInfo: [],
 			demo: [
 				{
 					title: "FIRST",
@@ -26,6 +27,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				users_charge = respJson;
 				//console.log(users_charge);
 				setStore({ users: users_charge });
+			},
+
+			inputForm: item => {
+				const data = getStore();
+				return setStore({ formInfo: item });
 			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {

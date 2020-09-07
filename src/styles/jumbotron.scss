@@ -11,31 +11,38 @@ body{
 #lugar, #plato{
     width: auto;
     border: 0px;
-    text-align: center;
+    text-align: left;
 
 }
-form{
+.form{
     border: 0px solid white;
     background-image: url("/calamares.jpg"); 
     background-size:cover;
-    color:white
+    color:rgba(67, 67, 70, 0.719);
+    height: 25rem;
+    padding: 5rem;
+    text-align: left;
 }
 
+.form-group{
+    margin:0.2rem
+}
 
 label{
-    font-size: 2rem;
+    font-size: 1.6rem;
 }
 
 ::placeholder { color: lightgrey; }
 
 input{
     border-radius: 5px;
-    border: 1px solid darkgrey
+    border: 1px solid darkgrey;
+   
 }
 
 .botoninicio{
+    margin:1rem;
     color:white;
-    border-top: 1rem;
     padding: 10px 16px;
     font-size: 16px;
     line-height: 20px;

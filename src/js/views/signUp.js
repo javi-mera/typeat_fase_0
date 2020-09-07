@@ -1,5 +1,4 @@
 import React from "react";
-import "../../styles/home.scss";
 import { Link } from "react-router-dom";
 import "../../styles/registro.scss";
 
@@ -32,7 +31,7 @@ export const SignUp = () => {
 			<div className="signNowButton text-center">
 				<Link to="/login">
 					<label id="other" htmlFor="exampleCheck1" className="lettersize">
-						¿Ya teienes cuenta? Accede!
+						¿Ya tienes cuenta? Accede!
 					</label>
 				</Link>
 			</div>

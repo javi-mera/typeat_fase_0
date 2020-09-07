@@ -1,9 +1,5 @@
 import React from "react";
-import "../../styles/home.scss";
 import { Link } from "react-router-dom";
-import InputGroup from "react-bootstrap/InputGroup";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import "../../styles/registro.scss";
 
 export const Login = () => {
