@@ -8,21 +8,13 @@ export const Dishresult = users => {
 	const { theid } = useParams();
 	const chId = theid - 1;
 	console.log(theid);
-
+	debugger;
 	return (
-		<div className="col-md-5 no-padding lib-item" data-category="ui">
-			<div className="lib-panel">
-				<div className="row box-shadow">
-					<div className="col-md-6" />
-					<div className="col-md-6">
-						<div className="lib-row lib-header">
-							Plato: {console.log(store.users[1])}
-							<div className="lib-header-seperator" />
-						</div>
-						<div className="lib-row lib-desc">descripción: </div>
-					</div>
-				</div>
-			</div>
+		<div>
+			hola
+			<h1>Hola</h1>
+			{console.log(store.users)}
+			{console.log(store.demo[0].title)}
 		</div>
 	);
 };
