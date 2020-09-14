@@ -18,10 +18,10 @@ export const Search = () => {
 			<div className="row">
 				<div className="card col-6">
 					<div className="container cont_width dishcard">
-						{store.users.map((e, index) => {
+						{store.dishes.map((e, index) => {
 							if (index <= indexTop && index > indexBottom) {
 								console.log(index);
-								return <Dish key={index} users={e} />;
+								return <Dish key={index} dishes={e} />;
 							}
 						})}
 					</div>
