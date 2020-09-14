@@ -7,7 +7,7 @@ import foodIcon from "../../img/icons8-omlette-64.png";
 
 export const Funcionamiento = () => {
 	return (
-		<div className="container-fluid" id="jumbosize">
+		<div className="container-fluid" id="jumbosizefun">
 			<div className="jumbotron jumbfuncionamiento">
 				<div className="card-deck">
 					<div className="card">
