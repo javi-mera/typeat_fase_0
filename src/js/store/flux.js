@@ -42,16 +42,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			//Probando a cargar archivos
-			uploadImgDishes: imagen => {
+			uploadImgDishes: file => {
 				//let imagen = document.querySelector("input[type='file']");
+				//const files = event.target.files[0];
+				//const formData = new FormData();
+				//formData.append("myfile", files[0]);
+
 				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/upload";
 				fetch(url, {
 					method: "POST",
-					body: "hola"
+					body: file.file
 				})
 					.then(response => response.json())
-					.catch(error => console.error("Error:", error))
-					.then(response => console.log("Success:", response));
+					//.then(data => {console.log(data)})
+					.then(success => console.log(success))
+					.catch(error => console.error("Error:", error));
 			},
 
 			inputForm: item => {
