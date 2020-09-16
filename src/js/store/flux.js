@@ -4,6 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			users: [],
 			dishes: [],
 			formInfo: [],
+			img: "",
 			demo: [
 				{
 					title: "FIRST",
@@ -38,6 +39,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 				dishes_charge = respJson;
 				//console.log(users_charge);
 				setStore({ dishes: dishes_charge });
+			},
+
+			//Probando a cargar archivos
+			uploadImgDishes: imagen => {
+				//let imagen = document.querySelector("input[type='file']");
+				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/upload";
+				fetch(url, {
+					method: "POST",
+					body: "hola"
+				})
+					.then(response => response.json())
+					.catch(error => console.error("Error:", error))
+					.then(response => console.log("Success:", response));
 			},
 
 			inputForm: item => {
