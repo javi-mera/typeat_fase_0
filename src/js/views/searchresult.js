@@ -8,7 +8,7 @@ export const Searchresult = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div>
+		<div className="fondo">
 			<Dishresult />
 		</div>
 	);
