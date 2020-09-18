@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import "../../styles/home.scss";
+import "../../styles/jumbotron.scss";
 import { MainForm } from "../component/mainform";
 import { Dish } from "../component/dish";
 import { Context } from "../store/appContext";
@@ -9,14 +10,14 @@ import calamares from "../../img/calamares.jpg";
 export const Search = () => {
 	const { store, actions } = useContext(Context);
 	const [indexTop, setIndexTop] = useState(4);
-	const indexBottom = indexTop - 4;
+	const indexBottom = indexTop - 2;
 	return (
 		<div className="base">
-			<div className="jumbotron alinearform">
+			<div className="jumbotron alinearform" id="jumbobackground">
 				<MainForm />
 			</div>
 			<div className="row">
-				<div className="card col-6">
+				<div className="card col-6 base">
 					<div className="container cont_width dishcard">
 						{store.dishes.map((e, index) => {
 							if (index <= indexTop && index > indexBottom) {

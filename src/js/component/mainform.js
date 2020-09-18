@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
+import "../../styles/jumbotron.scss";
 import "../../styles/search.scss";
 import { RestaurantSearchForm } from "../component/restaurantsearchform";
 

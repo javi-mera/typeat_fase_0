@@ -4,9 +4,13 @@ body{
    font-family: 'Source Sans Pro', sans-serif;
 }
 #jumbosize{
-    padding: 0rem 0rem;
-    
+    padding: 0rem;
+   
 }
+#jumbobackground{
+     background-color: rgb(253, 253, 193);
+}
+
 #jumbosizefun{
     padding: 0rem 2rem;
     
@@ -23,7 +27,7 @@ body{
     background-image: url("/calamares.jpg"); 
     background-size:cover;
     color:rgba(67, 67, 70, 0.719);
-    height: 25rem;
+    height: 35rem;
     padding: 5rem;
     text-align: left;
 }
