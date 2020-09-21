@@ -6,12 +6,16 @@ import { Dish } from "../component/dish";
 import { Context } from "../store/appContext";
 import { Button } from "react-bootstrap";
 import calamares from "../../img/calamares.jpg";
-import PropTypes from "prop-types";
+import PropType from "prop-types";
+import { useLocation } from "react-router-dom";
 
 export const Search = props => {
 	const { store, actions } = useContext(Context);
 	const [indexTop, setIndexTop] = useState(4);
 	const indexBottom = indexTop - 2;
+	const location = useLocation();
+	actions.loadSearchInfo(location.search);
+	console.log(location.search);
 	return (
 		<div className="base">
 			<div className="jumbotron alinearform" id="jumbobackground">
@@ -58,4 +62,9 @@ export const Search = props => {
 			</div>
 		</div>
 	);
+};
+
+Search.PropType = {
+	lugar: PropType.string,
+	plato: PropType.string
 };

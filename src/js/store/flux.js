@@ -41,9 +41,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ dishes: dishes_charge });
 			},
 
-			loadSearchInfo: async () => {
+			loadSearchInfo: async params => {
+				console.log(params);
 				let city_Info = [];
-				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/search";
+				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/search" + params;
 				let response = await fetch(url);
 				let respJson = await response.json();
 				//console.log(respJson);
