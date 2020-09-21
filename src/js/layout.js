@@ -42,8 +42,7 @@ const Layout = () => {
 						<Route exact path="/search/">
 							<Search />
 						</Route>
-						<Route exact path="/maps/" component={Maps} />
-						<Maps />
+
 						<Route>
 							<h1>Not found!</h1>
 						</Route>

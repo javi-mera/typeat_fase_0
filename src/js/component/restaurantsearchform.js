@@ -9,7 +9,6 @@ export const RestaurantSearchForm = () => {
 	const [textInputLugar, setTextInputLugar] = useState();
 	const [textInputPlato, setTextInputPlato] = useState();
 	let datosForm = { Lugar: textInputLugar, Plato: textInputPlato };
-
 	return (
 		<form className="form">
 			<label>De qué lugar quieres conocer sus platos tradicionales?</label>
@@ -33,7 +32,11 @@ export const RestaurantSearchForm = () => {
 				/>
 			</div>
 			<div>
-				<Link to="/search/">
+				<Link
+					to={{
+						pathname: "/search",
+						search: datosForm.Lugar
+					}}>
 					<button
 						type="button"
 						className="botoninicio"
