@@ -9,8 +9,8 @@ import calamares from "../../img/calamares.jpg";
 
 export const Search = () => {
 	const { store, actions } = useContext(Context);
-	const [indexTop, setIndexTop] = useState(4);
-	const indexBottom = indexTop - 2;
+	const [indexTop, setIndexTop] = useState(8);
+	const indexBottom = indexTop - 8;
 	return (
 		<div className="base">
 			<div className="jumbotron alinearform" id="jumbobackground">
