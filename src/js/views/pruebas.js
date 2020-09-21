@@ -6,15 +6,16 @@ import "../../styles/registro.scss";
 export const Pruebas = () => {
 	const { actions } = useContext(Context);
 	const [newFile, setNewFile] = useState();
-	let datos = { file: newFile };
-	//const input = document.getElementById("fileinput");
+	let datos = newFile;
+	//const input = document.getElementById("fileinput");method="POST";action="/upload"
+
 	return (
-		<form className="align-self-center" method="POST" action="/upload" encType="multipart/form-data">
+		<form className="align-self-center" encType="multipart/form-data">
 			<div className="form-group">
-				<label htmlFor="inputFile" name="file">
+				<label htmlFor="inputFile" name="fileinput">
 					File input
 				</label>
-				<input type="file" name="file" id="fileinput" multiple onChange={e => setNewFile(e.target.value)} />
+				<input type="file" name="fileinput" multiple onChange={e => setNewFile(e.target.files[0])} />
 			</div>
 			<button type="submit" className="btn btn-default" onClick={() => actions.uploadImgDishes(datos)}>
 				{" "}

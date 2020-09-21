@@ -45,16 +45,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 			uploadImgDishes: file => {
 				//let imagen = document.querySelector("input[type='file']");
 				//const files = event.target.files[0];
-				//const formData = new FormData();
-				//formData.append("myfile", files[0]);
+				console.log(file);
+				debugger;
+				const formData = new FormData();
+				formData.append("myfile", file);
 
 				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/upload";
 				fetch(url, {
-					method: "POST",
-					body: file.file
+					//method: "POST",
+					//body: file
 				})
 					.then(response => response.json())
-					//.then(data => {console.log(data)})
+					.then(response => {
+						console.log(response.json());
+					})
 					.then(success => console.log(success))
 					.catch(error => console.error("Error:", error));
 			},
