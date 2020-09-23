@@ -7,11 +7,14 @@ import { Context } from "../store/appContext";
 import { Button } from "react-bootstrap";
 import calamares from "../../img/calamares.jpg";
 import PropTypes from "prop-types";
+import { useLocation } from "react-use";
 
 export const Search = props => {
 	const { store, actions } = useContext(Context);
 	const [indexTop, setIndexTop] = useState(8);
 	const indexBottom = indexTop - 8;
+	const state = useLocation();
+	console.log(state);
 	return (
 		<div className="base">
 			<div className="jumbotron alinearform" id="jumbobackground">
@@ -58,4 +61,8 @@ export const Search = props => {
 			</div>
 		</div>
 	);
+};
+Search.propType = {
+	lugar: PropType.string,
+	plato: PropType.string
 };

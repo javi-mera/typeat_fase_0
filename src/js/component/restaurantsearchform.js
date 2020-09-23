@@ -35,7 +35,7 @@ export const RestaurantSearchForm = () => {
 				<Link
 					to={{
 						pathname: "/search",
-						search: datosForm.Lugar
+						search: "?" + "lugar=" + datosForm.Lugar + "&&" + "plato=" + datosForm.Plato
 					}}>
 					<button
 						type="button"
