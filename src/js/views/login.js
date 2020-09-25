@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import "../../styles/registro.scss";
 import "../../styles/home.scss";
 
 export const Login = () => {
+	const { store, actions } = useContext(Context);
 	const [inputimg, setinputimg] = useState(null);
+	const [email, setEmail] = useState(null);
+	const [password, setPassword] = useState(null);
 	return (
 		<div className="base">
 			<form>

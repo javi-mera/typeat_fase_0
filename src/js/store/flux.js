@@ -1,3 +1,5 @@
+import { encode } from "base-64";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -5,18 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			dishes: [],
 			formInfo: [],
 			cityInfo: [],
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			token: ""
 		},
 		actions: {
 			loadContacts: async () => {
@@ -58,27 +49,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				return setStore({ formInfo: item });
 			},
 			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
+			login: async (email, password) => {
+				let response = await fetch(
+					"https://3000-f2432604-1936-4aa6-bdba-9d7bf3ac6cfe.ws-eu01.gitpod.io/login",
+					{
+						method: "POST",
+						headers: { Authorization: "Basic " + require("base-64").encode(email + ":" + password) }
+					}
+				);
+				let respJson = await response.json();
+				console.log(respJson);
+				setStore({ token: respJson.token });
 			}
 		}
 	};
