@@ -3,6 +3,7 @@ import "../../styles/home.scss";
 import { Context } from "../store/appContext";
 import { Button } from "react-bootstrap";
 import { Dishresult } from "../component/dishresult";
+import { Dishresultcarousel } from "../component/dishresultcarousel";
 
 export const Searchresult = () => {
 	const { store, actions } = useContext(Context);
@@ -10,6 +11,7 @@ export const Searchresult = () => {
 	return (
 		<div className="fondo">
 			<Dishresult />
+			<Dishresultcarousel />
 		</div>
 	);
 };

@@ -12,6 +12,7 @@ import "../styles/jumbotron.scss";
 import "../styles/salto.scss";
 import "../styles/footer_navbar.scss";
 import "../styles/search.scss";
+import "../styles/dishresult.scss";
 
 //import your own components
 import Layout from "./layout";
