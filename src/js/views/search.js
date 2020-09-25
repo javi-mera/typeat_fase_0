@@ -12,7 +12,7 @@ import { useLocation } from "react-router-dom";
 export const Search = props => {
 	const { store, actions } = useContext(Context);
 	const [indexTop, setIndexTop] = useState(4);
-	const indexBottom = indexTop - 2;
+	const indexBottom = indexTop - 4;
 	const location = useLocation();
 	actions.loadSearchInfo(location.search);
 	console.log(location.search);
@@ -25,7 +25,7 @@ export const Search = props => {
 				<div className="card col-6 base">
 					<div className="container cont_width dishcard">
 						{store.dishes.map((e, index) => {
-							if (index <= indexTop && index > indexBottom) {
+							if (e.id <= indexTop && e.id > indexBottom) {
 								console.log(index);
 								return <Dish key={index} dishes={e} />;
 							}
@@ -37,7 +37,7 @@ export const Search = props => {
 								href=""
 								className="alignbutton m-1 bg-dark"
 								onClick={() => {
-									setIndexTop(indexTop - 5);
+									setIndexTop(indexTop - 4);
 								}}>
 								Previous
 							</Button>
@@ -45,7 +45,7 @@ export const Search = props => {
 								href=""
 								className="alignbutton m-1 bg-dark"
 								onClick={() => {
-									setIndexTop(indexTop + 5);
+									setIndexTop(indexTop + 4);
 								}}>
 								Next
 							</Button>
