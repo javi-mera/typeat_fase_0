@@ -27,21 +27,50 @@ export const Login = () => {
 					<label className="lettersize" htmlFor="exampleInputEmail1">
 						Email
 					</label>
-			
-			</div>
-			<div className="text-center">
-				<button type="submit" className="btn btn-primary lettersize">
-					Iniciar sesión
-				</button>
-			</div>
-			<div className="signNowButton text-center">
-				<Link to="/signup">
-					<label id="other" htmlFor="exampleCheck1" className="lettersize">
-						¿Todavía no tienes cuenta?
+					<input
+						onChange={e => setEmail(e.target.value)}
+						type="email"
+						className="form-control"
+						id="exampleInputEmail1"
+						aria-describedby="emailHelp"
+					/>
+				</div>
+				<div className="form-group">
+					<label className="lettersize" htmlFor="exampleInputPassword1">
+						Contraseña
 					</label>
-				</Link>
-			</div>
-		</form>
-        </div>
+					<input
+						onChange={e => setPassword(e.target.value)}
+						type="password"
+						className="form-control"
+						id="exampleInputPassword1"
+					/>
+				</div>
+				<div className="text-right">
+					<Link to="/">
+						<label className="forgot" htmlFor="exampleCheck1">
+							¿No recuerdas tu contraseña?
+						</label>
+					</Link>
+				</div>
+				<div className="text-center">
+					<button
+						onClick={e => {
+							e.preventDefault();
+							actions.login(email, password);
+						}}
+						className="btn btn-primary lettersize">
+						Iniciar sesión
+					</button>
+				</div>
+				<div className="signNowButton text-center">
+					<Link to="/signup">
+						<label id="other" htmlFor="exampleCheck1" className="lettersize">
+							¿Todavía no tienes cuenta?
+						</label>
+					</Link>
+				</div>
+			</form>
+		</div>
 	);
 };
