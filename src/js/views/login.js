@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import "../../styles/registro.scss";
 import "../../styles/home.scss";
 
 export const Login = () => {
+	const { store, actions } = useContext(Context);
 	const [inputimg, setinputimg] = useState(null);
+	const [email, setEmail] = useState(null);
+	const [password, setPassword] = useState(null);
 	return (
 		<div className="base">
 			<form>
@@ -27,13 +31,24 @@ export const Login = () => {
 					<label className="lettersize" htmlFor="exampleInputEmail1">
 						Email
 					</label>
-					<input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+					<input
+						onChange={e => setEmail(e.target.value)}
+						type="email"
+						className="form-control"
+						id="exampleInputEmail1"
+						aria-describedby="emailHelp"
+					/>
 				</div>
 				<div className="form-group">
 					<label className="lettersize" htmlFor="exampleInputPassword1">
 						Contraseña
 					</label>
-					<input type="password" className="form-control" id="exampleInputPassword1" />
+					<input
+						onChange={e => setPassword(e.target.value)}
+						type="password"
+						className="form-control"
+						id="exampleInputPassword1"
+					/>
 				</div>
 				<div className="text-right">
 					<Link to="/">
@@ -43,7 +58,12 @@ export const Login = () => {
 					</Link>
 				</div>
 				<div className="text-center">
-					<button type="submit" className="btn btn-primary lettersize">
+					<button
+						onClick={e => {
+							e.preventDefault();
+							actions.login(email, password);
+						}}
+						className="btn btn-primary lettersize">
 						Iniciar sesión
 					</button>
 				</div>
