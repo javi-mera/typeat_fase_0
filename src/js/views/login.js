@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/registro.scss";
+import "../../styles/home.scss";
 
 export const Login = () => {
 	const [inputimg, setinputimg] = useState(null);
 	return (
-		<div>
+		<div className="base">
 			<form>
 				<input type="file" onChange={e => setinputimg(e.target.value)} />
 				<button
