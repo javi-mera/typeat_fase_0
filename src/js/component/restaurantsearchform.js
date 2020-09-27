@@ -1,18 +1,22 @@
-import React, { useState, useContext, setStore } from "react";
+import React, { useState, useContext, setStore, Component } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/jumbotron.scss";
 import { MainForm } from "./mainform";
 import { Context } from "../store/appContext";
+import MyInput from "../component/probarauto";
 
 export const RestaurantSearchForm = () => {
 	const { store, actions } = useContext(Context);
 	const [textInputLugar, setTextInputLugar] = useState();
 	const [textInputPlato, setTextInputPlato] = useState();
 	let datosForm = { Lugar: textInputLugar, Plato: textInputPlato };
+
 	return (
 		<form className="form">
 			<label>De qué lugar quieres conocer sus platos tradicionales?</label>
 			<div className="form-group" id="lugar">
+				{" "}
+				<MyInput />
 				<input
 					type="text"
 					className="forminput"
