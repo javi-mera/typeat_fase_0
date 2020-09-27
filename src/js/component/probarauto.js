@@ -1,5 +1,6 @@
 import React, { useState, useContext, setStore } from "react";
 import Autocomplete from "react-autocomplete";
+import { Link } from "react-router-dom";
 
 class MyInput extends React.Component {
 	constructor(props) {
@@ -47,6 +48,15 @@ class MyInput extends React.Component {
 					onChange={e => this.setState({ plato: e.target.value })}
 					onSelect={plato => this.setState({ plato })}
 				/>
+				<Link
+					to={{
+						pathname: "/search",
+						search: "?" + "lugar=" + this.state.value + "&&" + "plato=" + this.state.plato
+					}}>
+					<button type="button" className="botoninicio">
+						Vamos a ello!
+					</button>
+				</Link>
 			</div>
 		);
 	}
