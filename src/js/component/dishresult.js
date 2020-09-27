@@ -10,10 +10,10 @@ export const Dishresult = users => {
 	console.log(theid);
 	debugger;
 	return (
-		<div className="container fondocard">
+		<div className="container fondocard shadow p-4 mb-4 bg-white">
 			<div className="row">
-				<div className="col border">
-					<h1 className="text-center">
+				<div className="col">
+					<h1 className="text-center pruebatitulo">
 						<ins>RESTAURANTE PINK FLOYD</ins>
 					</h1>
 					<div className="row">
@@ -27,8 +27,8 @@ export const Dishresult = users => {
 								<ins>Plato Vanguardista</ins>
 							</h3>
 							<p>
-								Menuda hambre me acaba de entrar cuando he visto esa jodida carne con su crujiente de
-								vegetaleeeeeeeeeeeeeeeeeeeeeeeeees.
+								Menudo hambre me acaba de entrar cuando he visto esa jodida carne con su crujiente de
+								vegetales.
 							</p>
 
 							<span type="button" id="fav" className=" btn btn-outline-warning fab fa-gratipay mt-auto" />

@@ -3,47 +3,84 @@ import { Context } from "../store/appContext";
 import "../../styles/dishresult.scss";
 import { Link, useParams } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
+import { Container, Row } from "react-bootstrap";
+import Col from "react-bootstrap/Col";
+import Image from "react-bootstrap/Image";
+import Button from "react-bootstrap/Button";
 
 export const Dishresultcarousel = users => {
 	const { store, actions } = useContext(Context);
 	const { theid } = useParams();
 
 	return (
-		<Carousel>
-			<Carousel.Item>
-				<img
-					className="d-block w-100"
-					src="https://www.xtrafondos.com/wallpapers/tierra-imaginaria-828.jpg"
-					alt="First slide"
-				/>
-				<Carousel.Caption>
-					<h3>First slide label</h3>
-					<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-				</Carousel.Caption>
-			</Carousel.Item>
-			<Carousel.Item>
-				<img
-					className="d-block w-100"
-					src="https://www.xtrafondos.com/wallpapers/atardecer-en-la-playa-554.jpg"
-					alt="Third slide"
-				/>
+		<Carousel className="prueba0" id="pruebafondo">
+			<Carousel.Item className="prueba">
+				<Container>
+					<Row>
+						<Col md={{ span: 8, offset: 2 }}>
+							<Row>
+								<Col>
+									<Image
+										src="https://cocina-casera.com/wp-content/uploads/2016/02/migas-extremenas.jpeg"
+										fluid
+										thumbnail
+									/>
+								</Col>
+								<Col id="posicion_nombre_plato">
+									<h3>Migas extremeñas</h3>
 
-				<Carousel.Caption>
-					<h3>Second slide label</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-				</Carousel.Caption>
+									<Button variant="warning" size="sm" className="posicion_boton">
+										Cuéntame más
+									</Button>
+								</Col>
+							</Row>
+						</Col>
+					</Row>
+				</Container>
 			</Carousel.Item>
-			<Carousel.Item>
-				<img
-					className="d-block w-100"
-					src="https://www.xtrafondos.com/wallpapers/pico-de-la-montana-en-suiza-388.jpg"
-					alt="Third slide"
-				/>
+			<Carousel.Item className="prueba">
+				<Container>
+					<Row>
+						<Col md={{ span: 8, offset: 2 }}>
+							<Row>
+								<Col>
+									<Image
+										src="https://media-cdn.tripadvisor.com/media/photo-s/11/ea/cb/39/prueba-de-cerdo.jpg"
+										fluid
+										thumbnail
+									/>
+								</Col>
+								<Col id="posicion_nombre_plato">
+									<h3>Caldereta de cordero</h3>
 
-				<Carousel.Caption>
-					<h3>Third slide label</h3>
-					<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-				</Carousel.Caption>
+									<Button variant="warning" size="sm" className="posicion_boton">
+										Cuéntame más
+									</Button>
+								</Col>
+							</Row>
+						</Col>
+					</Row>
+				</Container>
+			</Carousel.Item>
+			<Carousel.Item className="prueba">
+				<Container>
+					<Row>
+						<Col md={{ span: 8, offset: 2 }}>
+							<Row>
+								<Col>
+									<Image src="https://i.ytimg.com/vi/YUfYMvGZVA4/maxresdefault.jpg" fluid thumbnail />
+								</Col>
+								<Col id="posicion_nombre_plato">
+									<h3>Caldereta de cordero</h3>
+
+									<Button variant="warning" size="sm" className="posicion_boton">
+										Cuéntame más
+									</Button>
+								</Col>
+							</Row>
+						</Col>
+					</Row>
+				</Container>
 			</Carousel.Item>
 		</Carousel>
 
