@@ -1,7 +1,7 @@
 import React, { useState, useContext, setStore } from "react";
 import Autocomplete from "react-autocomplete";
 import { Link } from "react-router-dom";
-import RestaurantSearchForm from "../component/restaurantsearchform";
+import { Search } from "../views/search";
 
 class MyInput extends React.Component {
 	constructor(props) {

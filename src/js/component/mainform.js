@@ -2,13 +2,13 @@ import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/jumbotron.scss";
 import "../../styles/search.scss";
-import RestaurantSearchForm from "../component/restaurantsearchform";
 
-export const MainForm = () => {
+export const MainForm = parsed => {
 	const { store, actions } = useContext(Context);
-	const [textInputLugar, setTextInputLugar] = useState();
-	const [textInputPlato, setTextInputPlato] = useState();
+	const [textInputLugar, setTextInputLugar] = useState(parsed.info.lugar);
+	const [textInputPlato, setTextInputPlato] = useState(parsed.info.plato);
 	let datosForm = { Lugar: textInputLugar, Plato: textInputPlato };
+	//console.log(parsed.info.lugar);Pasar datos al store.
 	return (
 		<div className="container cont_width">
 			<div className="row">
@@ -18,7 +18,7 @@ export const MainForm = () => {
 						type="text"
 						className="form-control"
 						id="formGroupExampleInput"
-						placeholder={store.formInfo.Lugar}
+						placeholder={textInputLugar}
 						onChange={e => setTextInputLugar(e.target.value)}
 					/>
 				</div>
@@ -28,7 +28,7 @@ export const MainForm = () => {
 						type="text"
 						className="form-control"
 						id="formGroupExampleInput2"
-						placeholder={store.formInfo.Plato}
+						placeholder={textInputPlato}
 						onChange={e => setTextInputPlato(e.target.value)}
 					/>
 				</div>
