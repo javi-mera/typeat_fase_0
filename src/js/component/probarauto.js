@@ -1,65 +1,76 @@
 import React, { useState, useContext, setStore } from "react";
 import Autocomplete from "react-autocomplete";
 import { Link } from "react-router-dom";
+import RestaurantSearchForm from "../component/restaurantsearchform";
 
 class MyInput extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			value: "",
+			lugar: "",
 			plato: ""
 		};
 	}
 
 	render() {
 		return (
-			<div>
-				<Autocomplete
-					items={[
-						{ id: "1", label: "Madrid" },
-						{ id: "2", label: "Barcelona" },
-						{ id: "3", label: "Badajoz" }
-					]}
-					shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1}
-					getItemValue={item => item.label}
-					renderItem={(item, highlighted) => (
-						<div key={item.id} style={{ backgroundColor: highlighted ? "#eee" : "transparent" }}>
-							{item.label}
-						</div>
-					)}
-					value={this.state.value}
-					onChange={e => this.setState({ value: e.target.value })}
-					onSelect={value => this.setState({ value })}
-				/>
-				<Autocomplete
-					items={[
-						{ id: "1", label: "Cocido" },
-						{ id: "2", label: "Fabada" },
-						{ id: "3", label: "Calamares" }
-					]}
-					shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1}
-					getItemValue={item => item.label}
-					renderItem={(item, highlighted) => (
-						<div key={item.id} style={{ backgroundColor: highlighted ? "#eee" : "transparent" }}>
-							{item.label}
-						</div>
-					)}
-					value={this.state.plato}
-					onChange={e => this.setState({ plato: e.target.value })}
-					onSelect={plato => this.setState({ plato })}
-				/>
+			<form className="form">
+				<label>De qué lugar quieres conocer sus platos tradicionales?</label>
+				<div className="form-group" id="lugar">
+					{" "}
+					<Autocomplete
+						items={[
+							{ id: "1", label: "Madrid" },
+							{ id: "2", label: "Barcelona" },
+							{ id: "3", label: "Badajoz" }
+						]}
+						shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1}
+						getItemValue={item => item.label}
+						renderItem={(item, highlighted) => (
+							<div key={item.id} style={{ backgroundColor: highlighted ? "#eee" : "transparent" }}>
+								{item.label}
+							</div>
+						)}
+						value={this.state.lugar}
+						onChange={e => this.setState({ lugar: e.target.value })}
+						onSelect={lugar => this.setState({ lugar })}
+					/>
+				</div>
+				<label>Qué plato típico te apetece comer?</label>
+				<div className="form-group" id="plato">
+					<Autocomplete
+						items={[
+							{ id: "1", label: "Cocido" },
+							{ id: "2", label: "Fabada" },
+							{ id: "3", label: "Calamares" },
+							{ id: "4", label: "Migas" },
+							{ id: "5", label: "Mejillones" },
+							{ id: "6", label: "Alcachofas" },
+							{ id: "7", label: "Flamenquines" }
+						]}
+						shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1}
+						getItemValue={item => item.label}
+						renderItem={(item, highlighted) => (
+							<div key={item.id} style={{ backgroundColor: highlighted ? "#eee" : "transparent" }}>
+								{item.label}
+							</div>
+						)}
+						value={this.state.plato}
+						onChange={e => this.setState({ plato: e.target.value })}
+						onSelect={plato => this.setState({ plato })}
+					/>
+				</div>
 				<Link
 					to={{
 						pathname: "/search",
-						search: "?" + "lugar=" + this.state.value + "&&" + "plato=" + this.state.plato
+						search: "?" + "lugar=" + this.state.lugar + "&" + "plato=" + this.state.plato
 					}}>
 					<button type="button" className="botoninicio">
 						Vamos a ello!
 					</button>
 				</Link>
-			</div>
+			</form>
 		);
 	}
 }
-
 export default MyInput;

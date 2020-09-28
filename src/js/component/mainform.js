@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/jumbotron.scss";
 import "../../styles/search.scss";
-import { RestaurantSearchForm } from "../component/restaurantsearchform";
+import RestaurantSearchForm from "../component/restaurantsearchform";
 
 export const MainForm = () => {
 	const { store, actions } = useContext(Context);
