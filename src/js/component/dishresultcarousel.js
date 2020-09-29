@@ -13,8 +13,8 @@ export const Dishresultcarousel = users => {
 	const { theid } = useParams();
 
 	return (
-		<Carousel className="prueba0" id="pruebafondo">
-			<Carousel.Item className="prueba">
+		<Carousel className="carouselmargen" id="carouselfondo">
+			<Carousel.Item className="carouselmargen2">
 				<Container>
 					<Row>
 						<Col md={{ span: 8, offset: 2 }}>
@@ -38,7 +38,7 @@ export const Dishresultcarousel = users => {
 					</Row>
 				</Container>
 			</Carousel.Item>
-			<Carousel.Item className="prueba">
+			<Carousel.Item className="carouselmargen2">
 				<Container>
 					<Row>
 						<Col md={{ span: 8, offset: 2 }}>
@@ -62,7 +62,7 @@ export const Dishresultcarousel = users => {
 					</Row>
 				</Container>
 			</Carousel.Item>
-			<Carousel.Item className="prueba">
+			<Carousel.Item className="carouselmargen2">
 				<Container>
 					<Row>
 						<Col md={{ span: 8, offset: 2 }}>

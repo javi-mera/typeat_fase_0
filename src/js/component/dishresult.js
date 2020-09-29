@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/dishresult.scss";
 import { Link, useParams } from "react-router-dom";
+import RatingStar from "../component/ratingstar";
 
 export const Dishresult = users => {
 	const { store, actions } = useContext(Context);
@@ -13,7 +14,7 @@ export const Dishresult = users => {
 		<div className="container fondocard shadow p-4 mb-4 bg-white">
 			<div className="row">
 				<div className="col">
-					<h1 className="text-center pruebatitulo">
+					<h1 className="text-center margentitulo">
 						<ins>RESTAURANTE PINK FLOYD</ins>
 					</h1>
 					<div className="row">
@@ -24,8 +25,10 @@ export const Dishresult = users => {
 						/>
 						<div className="col-4">
 							<h3 className="text-center plato">
-								<ins>Plato Vanguardista</ins>
+								Plato Vanguardista
 							</h3>
+							<RatingStar />
+
 							<p>
 								Menudo hambre me acaba de entrar cuando he visto esa jodida carne con su crujiente de
 								vegetales.
