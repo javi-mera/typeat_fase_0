@@ -15,8 +15,10 @@ export const Search = () => {
 	const location = useLocation();
 	actions.loadSearchInfo(location.search);
 	const parsed = qs.parse(location.search);
-	//console.log(parsed);
-	actions.renderSearchInfo(location.search);
+	//console.log(location.state["lugar"]);
+	useEffect(() => {
+		actions.renderSearchInfo(location.search);
+	}, []);
 
 	return (
 		<div className="base">

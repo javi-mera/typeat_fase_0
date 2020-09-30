@@ -72,7 +72,8 @@ class MyInput extends React.Component {
 				<Link
 					to={{
 						pathname: "/search",
-						search: "?" + "lugar=" + this.state.lugar + "&" + "plato=" + this.state.plato
+						search: "?" + "lugar=" + this.state.lugar + "&" + "plato=" + this.state.plato,
+						state: { lugar: this.state.lugar, plato: this.state.plato }
 					}}>
 					<button type="button" className="botoninicio">
 						Vamos a ello!
