@@ -24,9 +24,7 @@ export const Dishresult = users => {
 							alt="Chania"
 						/>
 						<div className="col-4">
-							<h3 className="text-center plato">
-								Plato Vanguardista
-							</h3>
+							<h3 className="text-center plato">Plato Vanguardista</h3>
 							<RatingStar />
 
 							<p>
