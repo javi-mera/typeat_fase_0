@@ -21,6 +21,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ users: users_charge });
 			},
 
+			//Modificar: usar Dishes para f(x) renderSearch
 			loadDishes: async () => {
 				let dishes_charge = [];
 				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/dish";
@@ -34,14 +35,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			loadSearchInfo: async params => {
 				console.log(params);
-				let city_Info = [];
 				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/search" + params;
 				let response = await fetch(url);
+			},
+
+			renderSearchInfo: async params => {
+				console.log(params);
+				let dishes_charge = [];
+				let city_Info = [];
+				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/render_results" + params;
+				let response = await fetch(url);
 				let respJson = await response.json();
-				//console.log(respJson);
-				city_Info = respJson;
-				//console.log(users_charge);
-				setStore({ cityInfo: city_Info });
+				console.log(respJson.results);
+				dishes_charge = respJson.results;
+				setStore({ dishes: dishes_charge });
 			},
 
 			inputForm: item => {

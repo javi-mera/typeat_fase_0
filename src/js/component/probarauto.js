@@ -26,11 +26,20 @@ class MyInput extends React.Component {
 						]}
 						shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1}
 						getItemValue={item => item.label}
-						renderItem={(item, highlighted) => (
-							<div key={item.id} style={{ backgroundColor: highlighted ? "#eee" : "transparent" }}>
-								{item.label}
-							</div>
-						)}
+						hideResults={true}
+						renderItem={(item, highlighted) => {
+							if (this.state.lugar != "") {
+								return (
+									<div
+										key={item.id + Math.random()}
+										style={{ backgroundColor: highlighted ? "#eee" : "transparent" }}>
+										{item.label}
+									</div>
+								);
+							} else {
+								return <div key={item.id + Math.random()} className="d-none" />;
+							}
+						}}
 						value={this.state.lugar}
 						onChange={e => this.setState({ lugar: e.target.value })}
 						onSelect={lugar => this.setState({ lugar })}

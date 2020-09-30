@@ -14,9 +14,9 @@ export const Search = () => {
 	const indexBottom = indexTop - 4;
 	const location = useLocation();
 	actions.loadSearchInfo(location.search);
-	//console.log("esto" + location.search);
 	const parsed = qs.parse(location.search);
 	//console.log(parsed);
+	actions.renderSearchInfo(location.search);
 
 	return (
 		<div className="base">
@@ -27,7 +27,7 @@ export const Search = () => {
 				<div className="card col-6 base">
 					<div className="container cont_width dishcard">
 						{store.dishes.map((e, index) => {
-							if (e.id <= indexTop && e.id > indexBottom) {
+							if (index + 1 <= indexTop && index + 1 > indexBottom) {
 								console.log(index);
 								return <Dish key={index} dishes={e} />;
 							}
