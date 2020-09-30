@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { RestaurantSearchForm } from "../component/restaurantsearchform";
 import "../../styles/jumbotron.scss";
+import MyInput from "../component/probarauto";
+import calamar from "../../img/calamares.jpg";
 
 export const Jumbotron = () => {
 	return (
 		<div className="container-fluid" id="jumbosize">
-			<RestaurantSearchForm />
+			<MyInput />
 		</div>
 	);
 };

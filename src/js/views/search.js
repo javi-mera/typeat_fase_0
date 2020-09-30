@@ -5,27 +5,31 @@ import { MainForm } from "../component/mainform";
 import { Dish } from "../component/dish";
 import { Context } from "../store/appContext";
 import { Button } from "react-bootstrap";
-import calamares from "../../img/calamares.jpg";
-import PropType from "prop-types";
 import { useLocation } from "react-router-dom";
+import * as qs from "query-string";
 
-export const Search = props => {
+export const Search = () => {
 	const { store, actions } = useContext(Context);
 	const [indexTop, setIndexTop] = useState(4);
 	const indexBottom = indexTop - 4;
 	const location = useLocation();
 	actions.loadSearchInfo(location.search);
-	console.log(location.search);
+	const parsed = qs.parse(location.search);
+	//console.log(location.state["lugar"]);
+	useEffect(() => {
+		actions.renderSearchInfo(location.search);
+	}, []);
+
 	return (
 		<div className="base">
 			<div className="jumbotron alinearform" id="jumbobackground">
-				<MainForm />
+				<MainForm info={parsed} />
 			</div>
 			<div className="row">
 				<div className="card col-6 base">
 					<div className="container cont_width dishcard">
 						{store.dishes.map((e, index) => {
-							if (e.id <= indexTop && e.id > indexBottom) {
+							if (index + 1 <= indexTop && index + 1 > indexBottom) {
 								console.log(index);
 								return <Dish key={index} dishes={e} />;
 							}
@@ -62,9 +66,4 @@ export const Search = props => {
 			</div>
 		</div>
 	);
-};
-
-Search.PropType = {
-	lugar: PropType.string,
-	plato: PropType.string
 };
