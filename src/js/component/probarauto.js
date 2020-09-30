@@ -28,7 +28,7 @@ class MyInput extends React.Component {
 						getItemValue={item => item.label}
 						hideResults={true}
 						renderItem={(item, highlighted) => {
-							if (this.state.lugar != "") {
+							if (this.state.lugar.length > 0) {
 								return (
 									<div
 										key={item.id + Math.random()}
@@ -59,11 +59,19 @@ class MyInput extends React.Component {
 						]}
 						shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1}
 						getItemValue={item => item.label}
-						renderItem={(item, highlighted) => (
-							<div key={item.id} style={{ backgroundColor: highlighted ? "#eee" : "transparent" }}>
-								{item.label}
-							</div>
-						)}
+						renderItem={(item, highlighted) => {
+							if (this.state.plato.length > 0) {
+								return (
+									<div
+										key={item.id}
+										style={{ backgroundColor: highlighted ? "#eee" : "transparent" }}>
+										{item.label}
+									</div>
+								);
+							} else {
+								return <div key={item.id + Math.random()} className="d-none" />;
+							}
+						}}
 						value={this.state.plato}
 						onChange={e => this.setState({ plato: e.target.value })}
 						onSelect={plato => this.setState({ plato })}

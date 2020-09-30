@@ -34,19 +34,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			loadSearchInfo: async params => {
-				console.log(params);
+				//console.log(params);
 				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/search" + params;
 				let response = await fetch(url);
 			},
 
 			renderSearchInfo: async params => {
-				console.log(params);
+				//console.log(params);
 				let dishes_charge = [];
-				let city_Info = [];
 				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/render_results" + params;
 				let response = await fetch(url);
 				let respJson = await response.json();
-				console.log(respJson.results);
+				//console.log(respJson.results);
 				dishes_charge = respJson.results;
 				setStore({ dishes: dishes_charge });
 			},
