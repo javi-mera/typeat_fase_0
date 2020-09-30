@@ -60,7 +60,7 @@ class MyInput extends React.Component {
 						shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1}
 						getItemValue={item => item.label}
 						renderItem={(item, highlighted) => {
-							if ((this.state.plato.lengt, h > 0)) {
+							if (this.state.plato.length > 0) {
 								return (
 									<div
 										key={item.id}

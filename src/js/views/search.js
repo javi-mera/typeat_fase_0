@@ -13,57 +13,98 @@ export const Search = () => {
 	const [indexTop, setIndexTop] = useState(4);
 	const indexBottom = indexTop - 4;
 	const location = useLocation();
-	actions.loadSearchInfo(location.search);
+	//actions.loadSearchInfo(location.search);
 	const parsed = qs.parse(location.search);
 	//console.log(location.state["lugar"]);
 	useEffect(() => {
 		actions.renderSearchInfo(location.search);
 	}, []);
-
-	return (
-		<div className="base">
-			<div className="jumbotron alinearform" id="jumbobackground">
-				<MainForm info={parsed} />
-			</div>
-			<div className="row">
-				<div className="card col-6 base">
-					<div className="container cont_width dishcard">
-						{store.dishes.map((e, index) => {
-							if (index + 1 <= indexTop && index + 1 > indexBottom) {
-								console.log(index);
-								return <Dish key={index} dishes={e} />;
-							}
-						})}
-					</div>
-					<div className="card-footer">
-						<div className="d-flex justify-content-between ">
-							<Button
-								href=""
-								className="alignbutton m-1 bg-dark"
-								onClick={() => {
-									setIndexTop(indexTop - 4);
-								}}>
-								Previous
-							</Button>
-							<Button
-								href=""
-								className="alignbutton m-1 bg-dark"
-								onClick={() => {
-									setIndexTop(indexTop + 4);
-								}}>
-								Next
-							</Button>
+	if (store.dishes != null) {
+		return (
+			<div className="base">
+				<div className="jumbotron alinearform" id="jumbobackground">
+					<MainForm info={parsed} />
+				</div>
+				<div className="row">
+					<div className="card col-6 base">
+						<div className="container cont_width dishcard">
+							{store.dishes.map((e, index) => {
+								if (index + 1 <= indexTop && index + 1 > indexBottom) {
+									console.log(index);
+									return <Dish key={index} dishes={e} />;
+								}
+							})}
+						</div>
+						<div className="card-footer">
+							<div className="d-flex justify-content-between ">
+								<Button
+									href=""
+									className="alignbutton m-1 bg-dark"
+									onClick={() => {
+										setIndexTop(indexTop - 4);
+									}}>
+									Previous
+								</Button>
+								<Button
+									href=""
+									className="alignbutton m-1 bg-dark"
+									onClick={() => {
+										setIndexTop(indexTop + 4);
+									}}>
+									Next
+								</Button>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div className="col-6">
-					<img
-						className="card-img-center"
-						src="https://cdn.autobild.es/sites/navi.axelspringer.es/public/styles/480/public/media/image/2016/05/543113-asi-funciona-google-maps-conexion-internet.jpg?itok=zLmKOPKf"
-						alt="Card image cap"
-					/>
+					<div className="col-6">
+						<img
+							className="card-img-center"
+							src="https://cdn.autobild.es/sites/navi.axelspringer.es/public/styles/480/public/media/image/2016/05/543113-asi-funciona-google-maps-conexion-internet.jpg?itok=zLmKOPKf"
+							alt="Card image cap"
+						/>
+					</div>
 				</div>
 			</div>
-		</div>
-	);
+		);
+	} else {
+		return (
+			<div className="base">
+				<div className="jumbotron alinearform" id="jumbobackground">
+					<MainForm info={parsed} />
+				</div>
+				<div className="row">
+					<div className="card col-6 base">
+						<div className="container cont_width dishcard" />
+						<div className="card-footer">
+							<div className="d-flex justify-content-between ">
+								<Button
+									href=""
+									className="alignbutton m-1 bg-dark"
+									onClick={() => {
+										setIndexTop(indexTop - 4);
+									}}>
+									Previous
+								</Button>
+								<Button
+									href=""
+									className="alignbutton m-1 bg-dark"
+									onClick={() => {
+										setIndexTop(indexTop + 4);
+									}}>
+									Next
+								</Button>
+							</div>
+						</div>
+					</div>
+					<div className="col-6">
+						<img
+							className="card-img-center"
+							src="https://cdn.autobild.es/sites/navi.axelspringer.es/public/styles/480/public/media/image/2016/05/543113-asi-funciona-google-maps-conexion-internet.jpg?itok=zLmKOPKf"
+							alt="Card image cap"
+						/>
+					</div>
+				</div>
+			</div>
+		);
+	}
 };
