@@ -21,11 +21,9 @@ export const Search = () => {
 	}, []);
 
 	return (
-
 		<div className="base">
 			<div className="jumbotron alinearform" id="jumbobackground">
 				<MainForm info={parsed} />
-
 			</div>
 			<div className="row">
 				<div className="card col-6 base">
