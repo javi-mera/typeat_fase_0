@@ -16,8 +16,16 @@ export const Dish = dish => {
 					<div className="card-body">
 						<h5 className="card-title">id: {dish.dishes.id}</h5>
 						<p className="card-text">descripción: {dish.dishes.description}</p>
-						<Link to={"/searchresult/"}>
-							<button type="button" className="btn btn-primary">
+						<Link
+							to={{
+								pathname: "/searchresult/" + dish.dishes.id
+							}}>
+							<button
+								type="button"
+								className="btn btn-primary"
+								onClick={() => {
+									"hola";
+								}}>
 								Más info
 							</button>
 						</Link>

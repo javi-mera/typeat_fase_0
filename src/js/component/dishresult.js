@@ -8,7 +8,7 @@ export const Dishresult = users => {
 	const { store, actions } = useContext(Context);
 	const { theid } = useParams();
 	const chId = theid - 1;
-	console.log(theid);
+	console.log(users);
 	debugger;
 	return (
 		<div className="container fondocard shadow p-4 mb-4 bg-white">
@@ -35,8 +35,6 @@ export const Dishresult = users => {
 							<span type="button" id="fav" className=" btn btn-outline-warning fab fa-gratipay mt-auto" />
 						</div>
 					</div>
-					{console.log(store.users)}
-					{console.log(store.demo[0].title)}
 				</div>
 			</div>
 		</div>
