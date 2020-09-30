@@ -1,7 +1,14 @@
-import React, { Component } from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
+import "../../styles/jumbotron.scss";
 import "../../styles/search.scss";
 
-export const MainForm = props => {
+export const MainForm = parsed => {
+	const { store, actions } = useContext(Context);
+	const [textInputLugar, setTextInputLugar] = useState(parsed.info.lugar);
+	const [textInputPlato, setTextInputPlato] = useState(parsed.info.plato);
+	let datosForm = { Lugar: textInputLugar, Plato: textInputPlato };
+	//console.log(parsed.info.lugar);Pasar datos al store.
 	return (
 		<div className="container cont_width">
 			<div className="row">
@@ -11,7 +18,8 @@ export const MainForm = props => {
 						type="text"
 						className="form-control"
 						id="formGroupExampleInput"
-						placeholder="Example input placeholder"
+						placeholder={textInputLugar}
+						onChange={e => setTextInputLugar(e.target.value)}
 					/>
 				</div>
 				<div className="col text-center">
@@ -20,7 +28,8 @@ export const MainForm = props => {
 						type="text"
 						className="form-control"
 						id="formGroupExampleInput2"
-						placeholder="Another input placeholder"
+						placeholder={textInputPlato}
+						onChange={e => setTextInputPlato(e.target.value)}
 					/>
 				</div>
 				<div className="col text-center">
@@ -29,7 +38,9 @@ export const MainForm = props => {
 					<button
 						type="button"
 						className="botoninicio botond  justify-content-center alignbutton"
-						onSubmit={() => {}}>
+						onClick={() => {
+							console.log(datosForm);
+						}}>
 						Vamos a ello!
 					</button>
 				</div>

@@ -2,8 +2,6 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./views/home";
-import { Demo } from "./views/demo";
-import { Single } from "./views/single";
 import { Login } from "./views/login";
 import { SignUp } from "./views/signUp";
 import injectContext from "./store/appContext";
@@ -28,12 +26,6 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
-						<Route exact path="/demo">
-							<Demo />
-						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
-						</Route>
 						<Route exact path="/login/">
 							<Login />
 						</Route>
@@ -43,11 +35,13 @@ const Layout = () => {
 						<Route exact path="/search/">
 							<Search />
 						</Route>
+
 						<Route exact path="/searchresult/:theid">
 							<Searchresult />
 						</Route>
 						<Route exact path="/maps/" component={Maps} />
 						<Maps />
+
 						<Route>
 							<h1>Not found!</h1>
 						</Route>

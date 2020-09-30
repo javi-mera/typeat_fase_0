@@ -5,7 +5,8 @@ import { Funcionamiento } from "../component/funcionamiento";
 import { Linea } from "../component/salto";
 
 export const Home = () => (
-	<div className="text-center mt-5 fondo">
+
+	<div className="text-center mt-6 base">
 		<Jumbotron />
 		<Linea />
 		<Funcionamiento />

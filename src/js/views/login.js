@@ -1,45 +1,80 @@
-import React from "react";
-import "../../styles/home.scss";
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
-import InputGroup from "react-bootstrap/InputGroup";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import "../../styles/registro.scss";
+import "../../styles/home.scss";
 
 export const Login = () => {
+	const { store, actions } = useContext(Context);
+	const [inputimg, setinputimg] = useState(null);
+	const [email, setEmail] = useState(null);
+	const [password, setPassword] = useState(null);
 	return (
-		<form className="align-self-center">
-			<div className="form-group">
-				<label className="lettersize" htmlFor="exampleInputEmail1">
-					Email
-				</label>
-				<input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-			</div>
-			<div className="form-group">
-				<label className="lettersize" htmlFor="exampleInputPassword1">
-					Contraseña
-				</label>
-				<input type="password" className="form-control" id="exampleInputPassword1" />
-			</div>
-			<div className="text-right">
-				<Link to="/">
-					<label className="forgot" htmlFor="exampleCheck1">
-						¿No recuerdas tu contraseña?
-					</label>
-				</Link>
-			</div>
-			<div className="text-center">
-				<button type="submit" className="btn btn-primary lettersize">
-					Iniciar sesión
+		<div className="base">
+			<form>
+				<input type="file" onChange={e => setinputimg(e.target.value)} />
+				<button
+					type="submit"
+					onClick={e => {
+						e.preventDefault();
+						console.log(inputimg);
+					}}>
+					Subir
 				</button>
-			</div>
-			<div className="signNowButton text-center">
-				<Link to="/signup">
-					<label id="other" htmlFor="exampleCheck1" className="lettersize">
-						¿Todavía no tienes cuenta?
+
+				<form method="get" action={inputimg}>
+					<button type="submit">Download!</button>
+				</form>
+			</form>
+			<form className="align-self-center">
+				<div className="form-group">
+					<label className="lettersize" htmlFor="exampleInputEmail1">
+						Email
 					</label>
-				</Link>
-			</div>
-		</form>
+					<input
+						onChange={e => setEmail(e.target.value)}
+						type="email"
+						className="form-control"
+						id="exampleInputEmail1"
+						aria-describedby="emailHelp"
+					/>
+				</div>
+				<div className="form-group">
+					<label className="lettersize" htmlFor="exampleInputPassword1">
+						Contraseña
+					</label>
+					<input
+						onChange={e => setPassword(e.target.value)}
+						type="password"
+						className="form-control"
+						id="exampleInputPassword1"
+					/>
+				</div>
+				<div className="text-right">
+					<Link to="/">
+						<label className="forgot" htmlFor="exampleCheck1">
+							¿No recuerdas tu contraseña?
+						</label>
+					</Link>
+				</div>
+				<div className="text-center">
+					<button
+						onClick={e => {
+							e.preventDefault();
+							actions.login(email, password);
+						}}
+						className="btn btn-primary lettersize">
+						Iniciar sesión
+					</button>
+				</div>
+				<div className="signNowButton text-center">
+					<Link to="/signup">
+						<label id="other" htmlFor="exampleCheck1" className="lettersize">
+							¿Todavía no tienes cuenta?
+						</label>
+					</Link>
+				</div>
+			</form>
+		</div>
 	);
 };
