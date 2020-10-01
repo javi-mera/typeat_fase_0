@@ -55,7 +55,8 @@ class MyInput extends React.Component {
 							{ id: "4", label: "Migas" },
 							{ id: "5", label: "Mejillones" },
 							{ id: "6", label: "Alcachofas" },
-							{ id: "7", label: "Flamenquines" }
+							{ id: "7", label: "Flamenquines" },
+							{ id: "8", label: "Callos" }
 						]}
 						shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1}
 						getItemValue={item => item.label}

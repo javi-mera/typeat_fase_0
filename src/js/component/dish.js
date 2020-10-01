@@ -6,7 +6,7 @@ import "../../styles/dish.scss";
 export const Dish = dish => {
 	const { store, actions } = useContext(Context);
 	//console.log(users);
-	console.log(store.dishes[0]);
+	//console.log(store.dishes[0]);
 
 	return (
 		<div className="container dishcard">
