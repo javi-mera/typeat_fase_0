@@ -19,7 +19,7 @@ export const Search = () => {
 	useEffect(() => {
 		actions.renderSearchInfo(location.search);
 	}, []);
-	if (store.dishes != null) {
+	if (store.dishes !== null) {
 		return (
 			<div className="base">
 				<div className="jumbotron alinearform" id="jumbobackground">

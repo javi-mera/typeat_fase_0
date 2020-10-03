@@ -44,9 +44,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let dishes_charge = [];
 				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/render_results" + params;
 				let response = await fetch(url);
+				console.log(response);
 				let respJson = await response.json();
-				//console.log(respJson.results);
-				dishes_charge = respJson.results;
+				console.log(respJson);
+				dishes_charge = respJson.info;
 				setStore({ dishes: dishes_charge });
 			},
 
