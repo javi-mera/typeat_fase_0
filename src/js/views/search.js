@@ -7,6 +7,8 @@ import { Context } from "../store/appContext";
 import { Button } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import * as qs from "query-string";
+import MapView from "../component/react-leaflet";
+import { MarkerIcon } from "../component/react-leaflet-icon";
 
 export const Search = () => {
 	const { store, actions } = useContext(Context);
@@ -57,11 +59,7 @@ export const Search = () => {
 						</div>
 					</div>
 					<div className="col-6">
-						<img
-							className="card-img-center"
-							src="https://cdn.autobild.es/sites/navi.axelspringer.es/public/styles/480/public/media/image/2016/05/543113-asi-funciona-google-maps-conexion-internet.jpg?itok=zLmKOPKf"
-							alt="Card image cap"
-						/>
+						<MapView />
 					</div>
 				</div>
 			</div>
@@ -97,11 +95,7 @@ export const Search = () => {
 						</div>
 					</div>
 					<div className="col-6">
-						<img
-							className="card-img-center"
-							src="https://cdn.autobild.es/sites/navi.axelspringer.es/public/styles/480/public/media/image/2016/05/543113-asi-funciona-google-maps-conexion-internet.jpg?itok=zLmKOPKf"
-							alt="Card image cap"
-						/>
+						<MapView />
 					</div>
 				</div>
 			</div>

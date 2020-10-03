@@ -9,7 +9,8 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Search } from "./views/search";
 import { Searchresult } from "./views/searchresult";
-import Maps from "./component/maps";
+import MapView from "./component/react-leaflet";
+import { MarkerIcon } from "./component/react-leaflet-icon";
 
 //create your first component
 const Layout = () => {
@@ -39,8 +40,8 @@ const Layout = () => {
 						<Route exact path="/searchresult/:theid">
 							<Searchresult />
 						</Route>
-						<Route exact path="/maps/" component={Maps} />
-						<Maps />
+						<Route exact path="/maps/" />
+						<MapView />
 
 						<Route>
 							<h1>Not found!</h1>
