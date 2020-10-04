@@ -44,7 +44,6 @@ class MyInput extends React.Component {
 						onChange={e => this.setState({ lugar: e.target.value })}
 						onSelect={lugar => this.setState({ lugar })}
 					/>
-					{console.log(value)}
 				</div>
 				<label>Qué plato típico te apetece comer?</label>
 				<div className="form-group" id="plato">

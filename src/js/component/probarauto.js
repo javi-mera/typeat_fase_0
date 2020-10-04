@@ -1,56 +1,76 @@
-import React, { useState, useContext, useEffect } from "react";
-import { Context } from "../store/appContext";
-import Dropdown from "react-bootstrap/Dropdown";
+import React, { useState, useContext, setStore, useEffect } from "react";
+import Autocomplete from "react-autocomplete";
 import { Link } from "react-router-dom";
-import Form from "react-bootstrap/Form";
+import { Search } from "../views/search";
+import { Context } from "../store/appContext";
 
 const MyInput = () => {
 	const { store, actions } = useContext(Context);
-	const [ciudad, setCiudad] = useState("madrid");
-	const [plato, setPlato] = useState("calamares");
+	const [ciudad, setCiudad] = useState("");
+	const [plato, setPlato] = useState("");
 
 	useEffect(() => {
 		actions.loadCities();
 		actions.loadDishes();
 	}, []);
+
 	return (
 		<form className="form">
+			<label>¿De qué lugar quieres conocer sus platos tradicionales?</label>
 			<div className="form-group" id="lugar">
 				{" "}
-				<Form>
-					<Form.Group controlId="ControlSelect1">
-						<Form.Label id="1">De qué lugar quieres conocer sus platos tradicionales?</Form.Label>
-						<Form.Control
-							as="select"
-							value={ciudad}
-							onChange={e => {
-								setCiudad(e.target.value);
-								actions.renderSearchInfo("?" + "lugar=" + e.target.value + "&" + "plato=");
-							}}>
-							{store.city.map((item, index) => {
-								//console.log(item);
-								return <option key={index}>{item.name}</option>;
-							})}
-						</Form.Control>
-					</Form.Group>
-
-					<Form.Group controlId="ControlSelect2">
-						<Form.Label>Qué plato típico te apetece comer?</Form.Label>
-						<Form.Control
-							as="select"
-							value={plato}
-							onChange={e => {
-								setPlato(e.target.value);
-							}}>
-							{store.dishes.map((item, index) => {
-								//console.log(item);
-								return <option key={index}>{item.name}</option>;
-							})}
-						</Form.Control>
-					</Form.Group>
-				</Form>
+				<Autocomplete
+					items={store.city}
+					shouldItemRender={(item, value) => item.name.toLowerCase().indexOf(value.toLowerCase()) > -1}
+					getItemValue={item => item.name}
+					hideResults={true}
+					renderItem={(item, highlighted) => {
+						if (store.city.length > 0) {
+							return (
+								<div
+									key={item.id + Math.random()}
+									style={{ backgroundColor: highlighted ? "#eee" : "transparent" }}>
+									{item.name}
+								</div>
+							);
+						} else {
+							return <div key={item.id + Math.random()} className="d-none" />;
+						}
+					}}
+					value={ciudad}
+					onChange={e => setCiudad(e.target.value)}
+					onSelect={ciudad => {
+						setCiudad(ciudad);
+						actions.renderSearchInfo("?" + "lugar=" + ciudad + "&" + "plato=");
+					}}
+				/>
 			</div>
-
+			<label>¿Qué plato típico te apetece comer?</label>
+			<div className="form-group" id="lugar">
+				{" "}
+				<Autocomplete
+					items={store.dishes}
+					shouldItemRender={(item, value) => item.name.toLowerCase().indexOf(value.toLowerCase()) > -1}
+					getItemValue={item => item.name}
+					hideResults={true}
+					renderItem={(item, highlighted) => {
+						if (store.dishes.length > 0) {
+							return (
+								<div
+									key={item.id + Math.random()}
+									style={{ backgroundColor: highlighted ? "#eee" : "transparent" }}>
+									{item.name}
+								</div>
+							);
+						} else {
+							return <div key={item.id + Math.random()} className="d-none" />;
+						}
+					}}
+					value={plato}
+					onChange={e => setPlato(e.target.value)}
+					onSelect={plato => setPlato(plato)}
+				/>
+			</div>
 			<Link
 				to={{
 					pathname: "/search",
@@ -63,5 +83,4 @@ const MyInput = () => {
 		</form>
 	);
 };
-
 export default MyInput;
