@@ -57,7 +57,35 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let respJson = await response.json();
 				console.log(respJson);
 				dishes_charge = respJson.info;
+				setStore({ dishesName: dishes_charge });
+			},
+
+			duplicateDishes: async params => {
+				let dishes_charge = [];
+				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/render_results" + params;
+				let response = await fetch(url);
+				let respJson = await response.json();
+				dishes_charge = respJson.info;
 				setStore({ dishes: dishes_charge });
+				const data = await getStore();
+
+				function removeDuplicates(originalArray, prop) {
+					let newArray = [];
+					let lookupObject = {};
+					for (let i in originalArray) {
+						lookupObject[originalArray[i][prop]] = originalArray[i];
+					}
+					for (i in lookupObject) {
+						newArray.push(lookupObject[i]);
+					}
+					return newArray;
+				}
+
+				let uniqueArray = removeDuplicates(data.dishes, "name");
+
+				//let filterDishes = data.dishes.filter((dish, index) => data.dishes.name.indexOf(dish) === index);
+				console.log(uniqueArray);
+				setStore({ dishes: uniqueArray });
 			},
 
 			inputForm: item => {

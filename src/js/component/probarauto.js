@@ -41,7 +41,7 @@ const MyInput = () => {
 					onChange={e => setCiudad(e.target.value)}
 					onSelect={ciudad => {
 						setCiudad(ciudad);
-						actions.renderSearchInfo("?" + "lugar=" + ciudad + "&" + "plato=");
+						actions.duplicateDishes("?" + "lugar=" + ciudad + "&" + "plato=");
 					}}
 				/>
 			</div>
