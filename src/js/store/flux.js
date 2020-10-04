@@ -57,7 +57,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let respJson = await response.json();
 				console.log(respJson);
 				dishes_charge = respJson.info;
-				setStore({ dishesName: dishes_charge });
+				setStore({ dishes: dishes_charge });
 			},
 
 			duplicateDishes: async params => {

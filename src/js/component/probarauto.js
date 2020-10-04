@@ -3,12 +3,13 @@ import Autocomplete from "react-autocomplete";
 import { Link } from "react-router-dom";
 import { Search } from "../views/search";
 import { Context } from "../store/appContext";
+import { useLocation } from "react-router-dom";
 
 const MyInput = () => {
 	const { store, actions } = useContext(Context);
 	const [ciudad, setCiudad] = useState("");
 	const [plato, setPlato] = useState("");
-
+	const location = useLocation();
 	useEffect(() => {
 		actions.loadCities();
 		actions.loadDishes();
