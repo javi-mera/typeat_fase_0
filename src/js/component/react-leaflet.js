@@ -24,7 +24,7 @@ class MapView extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			currentLocation: { lat: 38.71, lng: -0.48 },
+			currentLocation: { lat: 37.37, lng: -6.03 },
 			zoom: 12
 		};
 		this.handleClick = this.handleClick.bind(this);

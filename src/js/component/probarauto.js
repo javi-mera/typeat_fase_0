@@ -1,95 +1,67 @@
-import React, { useState, useContext, setStore } from "react";
-import Autocomplete from "react-autocomplete";
+import React, { useState, useContext, useEffect } from "react";
+import { Context } from "../store/appContext";
+import Dropdown from "react-bootstrap/Dropdown";
 import { Link } from "react-router-dom";
-import { Search } from "../views/search";
+import Form from "react-bootstrap/Form";
 
-class MyInput extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			lugar: "",
-			plato: ""
-		};
-	}
+const MyInput = () => {
+	const { store, actions } = useContext(Context);
+	const [ciudad, setCiudad] = useState("madrid");
+	const [plato, setPlato] = useState("calamares");
 
-	render() {
-		return (
-			<form className="form">
-				<label>De qué lugar quieres conocer sus platos tradicionales?</label>
-				<div className="form-group" id="lugar">
-					{" "}
-					<Autocomplete
-						items={[
-							{ id: "1", label: "Madrid" },
-							{ id: "2", label: "Barcelona" },
-							{ id: "3", label: "Badajoz" }
-						]}
-						shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1}
-						getItemValue={item => item.label}
-						hideResults={true}
-						renderItem={(item, highlighted) => {
-							if (this.state.lugar.length > 0) {
-								return (
-									<div
-										key={item.id + Math.random()}
-										style={{ backgroundColor: highlighted ? "#eee" : "transparent" }}>
-										{item.label}
-									</div>
-								);
-							} else {
-								return <div key={item.id + Math.random()} className="d-none" />;
-							}
-						}}
-						value={this.state.lugar}
-						onChange={e => this.setState({ lugar: e.target.value })}
-						onSelect={lugar => this.setState({ lugar })}
-					/>
-				</div>
-				<label>Qué plato típico te apetece comer?</label>
-				<div className="form-group" id="plato">
-					<Autocomplete
-						items={[
-							{ id: "1", label: "Cocido" },
-							{ id: "2", label: "Fabada" },
-							{ id: "3", label: "Calamares" },
-							{ id: "4", label: "Migas" },
-							{ id: "5", label: "Mejillones" },
-							{ id: "6", label: "Alcachofas" },
-							{ id: "7", label: "Flamenquines" },
-							{ id: "8", label: "Callos" }
-						]}
-						shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1}
-						getItemValue={item => item.label}
-						renderItem={(item, highlighted) => {
-							if (this.state.plato.length > 0) {
-								return (
-									<div
-										key={item.id}
-										style={{ backgroundColor: highlighted ? "#eee" : "transparent" }}>
-										{item.label}
-									</div>
-								);
-							} else {
-								return <div key={item.id + Math.random()} className="d-none" />;
-							}
-						}}
-						value={this.state.plato}
-						onChange={e => this.setState({ plato: e.target.value })}
-						onSelect={plato => this.setState({ plato })}
-					/>
-				</div>
-				<Link
-					to={{
-						pathname: "/search",
-						search: "?" + "lugar=" + this.state.lugar + "&" + "plato=" + this.state.plato,
-						state: { lugar: this.state.lugar, plato: this.state.plato }
-					}}>
-					<button type="button" className="botoninicio">
-						Vamos a ello!
-					</button>
-				</Link>
-			</form>
-		);
-	}
-}
+	useEffect(() => {
+		actions.loadCities();
+		actions.loadDishes();
+	}, []);
+	return (
+		<form className="form">
+			<div className="form-group" id="lugar">
+				{" "}
+				<Form>
+					<Form.Group controlId="ControlSelect1">
+						<Form.Label id="1">De qué lugar quieres conocer sus platos tradicionales?</Form.Label>
+						<Form.Control
+							as="select"
+							value={ciudad}
+							onChange={e => {
+								setCiudad(e.target.value);
+								actions.renderSearchInfo("?" + "lugar=" + e.target.value + "&" + "plato=");
+							}}>
+							{store.city.map((item, index) => {
+								//console.log(item);
+								return <option key={index}>{item.name}</option>;
+							})}
+						</Form.Control>
+					</Form.Group>
+
+					<Form.Group controlId="ControlSelect2">
+						<Form.Label>Qué plato típico te apetece comer?</Form.Label>
+						<Form.Control
+							as="select"
+							value={plato}
+							onChange={e => {
+								setPlato(e.target.value);
+							}}>
+							{store.dishes.map((item, index) => {
+								//console.log(item);
+								return <option key={index}>{item.name}</option>;
+							})}
+						</Form.Control>
+					</Form.Group>
+				</Form>
+			</div>
+
+			<Link
+				to={{
+					pathname: "/search",
+					search: "?" + "lugar=" + ciudad + "&" + "plato=" + plato
+				}}>
+				<button type="button" className="botoninicio">
+					Vamos a ello!
+				</button>
+			</Link>
+		</form>
+	);
+};
+
 export default MyInput;
