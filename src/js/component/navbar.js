@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Logo from "../../img/rigo-baby.jpg";
+
 import "../../styles/navbar.scss";
 
 export const Navbar = () => {
@@ -17,8 +17,8 @@ export const Navbar = () => {
 			</Link>
         </nav>*/
 
-		<header className="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
-			<div className="container">
+		<header className="navbar navbar-inverse navbar-fixed-top bs-docs-nav " role="banner">
+			<div className="container ancho">
 				<div className="navbar-header">
 					<Link to="/">
 						<h1 className="navbar-brand">TYPEAT</h1>

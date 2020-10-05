@@ -73,6 +73,7 @@ export const Search = () => {
 				<div className="row">
 					<div className="card col-6 base">
 						<div className="container cont_width dishcard" />
+
 						<div className="card-footer">
 							<div className="d-flex justify-content-between ">
 								<Button
