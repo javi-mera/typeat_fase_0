@@ -10,6 +10,7 @@ export const Dish = dish => {
 	useEffect(() => {
 		actions.loadRestaurants(dish.dishes.restaurant_id);
 	}, []);
+
 	return (
 		<div className="container dishcard">
 			<div className="row">
