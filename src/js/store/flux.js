@@ -5,6 +5,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			users: [],
 			dishes: [],
+			restaurants: [],
 			formInfo: [],
 			city: [],
 			token: ""
@@ -30,6 +31,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ city: cities });
 			},
 
+			loadRestaurants: async () => {
+				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/restaurant";
+				let response = await fetch(url);
+				let respJson = await response.json();
+				let rest = respJson;
+				//console.log(rest, "aqui");
+				setStore({ restaurants: rest });
+			},
+
+			loadRestaurant: rest_id => {
+				const data = getStore();
+				//let filter = data.restaurants.id.find(rest_id);
+				let filter_rest = data.restaurants.filter(restaurant => restaurant.id == rest_id);
+				console.log(filter_rest[0].name);
+				return filter_rest[0].name;
+			},
+
 			//Modificar: usar Dishes para f(x) renderSearch
 			loadDishes: async () => {
 				let dishes_charge = [];
@@ -49,13 +67,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			renderSearchInfo: async params => {
-				console.log(params);
+				//console.log(params);
 				let dishes_charge = [];
 				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/render_results" + params;
 				let response = await fetch(url);
-				console.log(response);
+				//console.log(response);
 				let respJson = await response.json();
-				console.log(respJson, "####");
+				//console.log(respJson, "####");
 				dishes_charge = respJson.info;
 				setStore({ dishes: dishes_charge });
 			},
@@ -84,7 +102,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let uniqueArray = removeDuplicates(data.dishes, "name");
 
 				//let filterDishes = data.dishes.filter((dish, index) => data.dishes.name.indexOf(dish) === index);
-				console.log(uniqueArray);
+				//console.log(uniqueArray);
 				setStore({ dishes: uniqueArray });
 			},
 
@@ -105,7 +123,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				);
 				let respJson = await response.json();
-				console.log(respJson);
+				//console.log(respJson);
 				setStore({ token: respJson.token });
 			}
 		}

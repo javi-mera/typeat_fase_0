@@ -78,7 +78,12 @@ const MyInput = () => {
 						pathname: "/search",
 						search: "?" + "lugar=" + ciudad + "&" + "plato=" + plato
 					}}>
-					<button type="button" className="botoninicio" onClick={() => setErr(false)}>
+					<button
+						type="button"
+						className="botoninicio"
+						onClick={() => {
+							setErr(false);
+						}}>
 						Vamos a ello!
 					</button>
 				</Link>
