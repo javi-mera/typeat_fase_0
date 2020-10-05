@@ -6,7 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			users: [],
 			dishes: [],
 			formInfo: [],
-			cityInfo: [],
+			city: [],
 			token: ""
 		},
 		actions: {
@@ -19,6 +19,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				users_charge = respJson;
 				//console.log(users_charge);
 				setStore({ users: users_charge });
+			},
+
+			loadCities: async () => {
+				let cities = [];
+				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/city";
+				let response = await fetch(url);
+				let respJson = await response.json();
+				cities = respJson;
+				setStore({ city: cities });
 			},
 
 			//Modificar: usar Dishes para f(x) renderSearch
@@ -40,7 +49,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			renderSearchInfo: async params => {
-				//console.log(params);
+				console.log(params);
 				let dishes_charge = [];
 				let url = "https://3000-f2432604-1936-4aa6-bdba-9d7bf3ac6cfe.ws-eu01.gitpod.io/render_results" + params;
 				let response = await fetch(url);
@@ -49,6 +58,34 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(respJson);
 				dishes_charge = respJson.info;
 				setStore({ dishes: dishes_charge });
+			},
+
+			duplicateDishes: async params => {
+				let dishes_charge = [];
+				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/render_results" + params;
+				let response = await fetch(url);
+				let respJson = await response.json();
+				dishes_charge = respJson.info;
+				setStore({ dishes: dishes_charge });
+				const data = await getStore();
+
+				function removeDuplicates(originalArray, prop) {
+					let newArray = [];
+					let lookupObject = {};
+					for (let i in originalArray) {
+						lookupObject[originalArray[i][prop]] = originalArray[i];
+					}
+					for (let i in lookupObject) {
+						newArray.push(lookupObject[i]);
+					}
+					return newArray;
+				}
+
+				let uniqueArray = removeDuplicates(data.dishes, "name");
+
+				//let filterDishes = data.dishes.filter((dish, index) => data.dishes.name.indexOf(dish) === index);
+				console.log(uniqueArray);
+				setStore({ dishes: uniqueArray });
 			},
 
 			inputForm: item => {
