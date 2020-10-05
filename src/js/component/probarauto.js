@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { Search } from "../views/search";
 import { Context } from "../store/appContext";
 import { useLocation } from "react-router-dom";
-
 const MyInput = () => {
 	const { store, actions } = useContext(Context);
 	const [ciudad, setCiudad] = useState("");
@@ -12,10 +11,9 @@ const MyInput = () => {
 	const [err, setErr] = useState(false);
 	const location = useLocation();
 	useEffect(() => {
-		//actions.loadCities();
-		//actions.loadDishes();
+		actions.loadCities();
+		actions.loadDishes();
 	}, []);
-
 	return (
 		<form className="form">
 			<label>¿De qué lugar quieres conocer sus platos tradicionales?</label>
@@ -74,7 +72,6 @@ const MyInput = () => {
 					onSelect={plato => setPlato(plato)}
 				/>
 			</div>
-
 			{ciudad != "" ? (
 				<Link
 					to={{

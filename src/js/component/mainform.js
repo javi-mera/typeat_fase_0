@@ -9,7 +9,6 @@ export const MainForm = parsed => {
 	const [ciudad, setCiudad] = useState(parsed.info.lugar);
 	const [plato, setPlato] = useState(parsed.info.plato);
 	const [err, setErr] = useState(false);
-	let datosForm = { Lugar: ciudad, Plato: plato };
 
 	return (
 		<div className="container cont_width">
