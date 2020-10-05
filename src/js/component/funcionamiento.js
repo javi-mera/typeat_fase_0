@@ -10,7 +10,7 @@ export const Funcionamiento = () => {
 		<div className="container-fluid" id="jumbosizefun">
 			<div className="jumbotron jumbfuncionamiento">
 				<div className="card-deck">
-					<div className="card">
+					<div className="card rounded-circle" id="card_func">
 						<img src={searchIcon} className="card-img-top" alt="..." />
 						<div className="card-body">
 							<h5 className="card-title">Encuentra</h5>
@@ -20,7 +20,7 @@ export const Funcionamiento = () => {
 							</p>
 						</div>
 					</div>
-					<div className="card">
+					<div className="card rounded-circle" id="card_func">
 						<img src={findIcon} className="card-img-top" alt="..." />
 						<div className="card-body">
 							<h5 className="card-title">Elige</h5>
@@ -30,7 +30,7 @@ export const Funcionamiento = () => {
 							</p>
 						</div>
 					</div>
-					<div className="card">
+					<div className="card rounded-circle" id="card_func">
 						<img src={foodIcon} className="card-img-top" alt="..." />
 						<div className="card-body">
 							<h5 className="card-title">Y disfruta!</h5>

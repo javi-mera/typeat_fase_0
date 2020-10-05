@@ -32,7 +32,7 @@ export const MainForm = parsed => {
 						onChange={e => setTextInputPlato(e.target.value)}
 					/>
 				</div>
-				<div className="col text-center">
+				<div className="col botondd">
 					<br />
 
 					<button

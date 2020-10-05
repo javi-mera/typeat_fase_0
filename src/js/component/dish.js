@@ -14,7 +14,7 @@ export const Dish = dish => {
 				<div className="col-6 stylecard">
 					<h5 className="card-header">Plato: {dish.dishes.name}</h5>
 					<div className="card-body">
-						<h5 className="card-title">id: {dish.dishes.id}</h5>
+						<p className="card-text">descripción: {dish.dishes.restaurant_name}</p>
 						<p className="card-text">descripción: {dish.dishes.description}</p>
 						<Link
 							to={{
