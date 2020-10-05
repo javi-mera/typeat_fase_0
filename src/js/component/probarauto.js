@@ -12,8 +12,8 @@ const MyInput = () => {
 	const [err, setErr] = useState(false);
 	const location = useLocation();
 	useEffect(() => {
-		actions.loadCities();
-		actions.loadDishes();
+		//actions.loadCities();
+		//actions.loadDishes();
 	}, []);
 
 	return (

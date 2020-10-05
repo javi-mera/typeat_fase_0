@@ -1,49 +1,94 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
+import Autocomplete from "react-autocomplete";
 import "../../styles/jumbotron.scss";
 import "../../styles/search.scss";
 
 export const MainForm = parsed => {
 	const { store, actions } = useContext(Context);
-	const [textInputLugar, setTextInputLugar] = useState(parsed.info.lugar);
-	const [textInputPlato, setTextInputPlato] = useState(parsed.info.plato);
-	let datosForm = { Lugar: textInputLugar, Plato: textInputPlato };
-	//console.log(parsed.info.lugar);Pasar datos al store.
+	const [ciudad, setCiudad] = useState(parsed.info.lugar);
+	const [plato, setPlato] = useState(parsed.info.plato);
+	const [err, setErr] = useState(false);
+	let datosForm = { Lugar: ciudad, Plato: plato };
+
 	return (
 		<div className="container cont_width">
 			<div className="row">
 				<div className="col text-center">
 					<label htmlFor="formGroupExampleInput">Lugar</label>
-					<input
-						type="text"
-						className="form-control"
-						id="formGroupExampleInput"
-						placeholder={textInputLugar}
-						onChange={e => setTextInputLugar(e.target.value)}
+					<Autocomplete
+						items={store.city}
+						shouldItemRender={(item, value) => item.name.toLowerCase().indexOf(value.toLowerCase()) > -1}
+						getItemValue={item => item.name}
+						hideResults={true}
+						renderItem={(item, highlighted) => {
+							if (store.city.length > 0) {
+								return (
+									<div
+										key={item.id + Math.random()}
+										style={{ backgroundColor: highlighted ? "#eee" : "transparent" }}>
+										{item.name}
+									</div>
+								);
+							} else {
+								return <div key={item.id + Math.random()} className="d-none" />;
+							}
+						}}
+						value={ciudad}
+						onChange={e => {
+							setCiudad(e.target.value);
+							setPlato("");
+						}}
+						onSelect={ciudad => {
+							setCiudad(ciudad);
+							actions.duplicateDishes("?" + "lugar=" + ciudad + "&" + "plato=");
+							setErr(false);
+						}}
 					/>
+					{err == false ? "" : <p>error</p>}
 				</div>
 				<div className="col text-center">
 					<label htmlFor="formGroupExampleInput2">Plato típico </label>
-					<input
-						type="text"
-						className="form-control"
-						id="formGroupExampleInput2"
-						placeholder={textInputPlato}
-						onChange={e => setTextInputPlato(e.target.value)}
+					<Autocomplete
+						items={store.dishes}
+						shouldItemRender={(item, value) => item.name.toLowerCase().indexOf(value.toLowerCase()) > -1}
+						getItemValue={item => item.name}
+						hideResults={true}
+						renderItem={(item, highlighted) => {
+							if (store.dishes.length > 0) {
+								return (
+									<div
+										key={item.id + Math.random()}
+										style={{ backgroundColor: highlighted ? "#eee" : "transparent" }}>
+										{item.name}
+									</div>
+								);
+							} else {
+								return <div key={item.id + Math.random()} className="d-none" />;
+							}
+						}}
+						value={plato}
+						onChange={e => setPlato(e.target.value)}
+						onSelect={plato => setPlato(plato)}
 					/>
 				</div>
-				<div className="col botondd">
-					<br />
-
+			</div>
+			<div className="col botondd">
+				<br />
+				{ciudad.length > 0 ? (
 					<button
 						type="button"
 						className="botoninicio botond  justify-content-center alignbutton"
 						onClick={() => {
-							console.log(datosForm);
+							actions.renderSearchInfo("?" + "lugar=" + ciudad + "&" + "plato=" + plato);
 						}}>
 						Vamos a ello!
 					</button>
-				</div>
+				) : (
+					<button type="button" className="botoninicio" onClick={() => setErr(true)}>
+						Vamos a ello
+					</button>
+				)}
 			</div>
 		</div>
 	);

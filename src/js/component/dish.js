@@ -8,14 +8,14 @@ export const Dish = dish => {
 	//console.log(users);
 	//console.log(store.dishes[0]);
 	useEffect(() => {
-		actions.loadRestaurants(dish.dishes.restaurant_id);
+		//actions.loadRestaurants(dish.dishes.restaurant_id);
 	}, []);
 
 	return (
 		<div className="container dishcard">
 			<div className="row">
 				<div className="col-6 stylecard">
-					<h4 className="card-header">Restaurante: {store.restaurantInfo.name}</h4>
+					<h4 className="card-header">Restaurante: {"name"}</h4>
 					<h5 className="card-header">Plato: {dish.dishes.name}</h5>
 					<div className="card-body">
 						<p className="card-text">Restaurante: {dish.dishes.restaurant_name}</p>
