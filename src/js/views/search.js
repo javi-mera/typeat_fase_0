@@ -28,8 +28,8 @@ export const Search = () => {
 					<MainForm info={parsed} />
 				</div>
 				<div className="row">
-					<div className="card col-6 base">
-						<div className="container cont_width dishcard">
+					<div className="card col-6 base border border-0">
+						<div className="container">
 							{store.dishes.map((e, index) => {
 								if (index + 1 <= indexTop && index + 1 > indexBottom) {
 									console.log(index);
@@ -37,7 +37,7 @@ export const Search = () => {
 								}
 							})}
 						</div>
-						<div className="card-footer">
+						<div className="card">
 							<div className="d-flex justify-content-between ">
 								<Button
 									href=""
