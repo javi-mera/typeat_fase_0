@@ -22,7 +22,7 @@ const MyInput = () => {
 						<Form.Label id="1">¿De qué lugar quieres conocer sus platos tradicionales?</Form.Label>
 						<Form.Control
 							as="select"
-							value="{ciudad}"
+							value={ciudad}
 							onChange={e => {
 								setCiudad(e.target.value);
 								actions.renderSearchInfo("?" + "lugar=" + e.target.value + "&" + "plato=");

@@ -9,6 +9,7 @@ const MyInput = () => {
 	const { store, actions } = useContext(Context);
 	const [ciudad, setCiudad] = useState("");
 	const [plato, setPlato] = useState("");
+	const [err, setErr] = useState(false);
 	const location = useLocation();
 	useEffect(() => {
 		actions.loadCities();
@@ -45,6 +46,7 @@ const MyInput = () => {
 						actions.duplicateDishes("?" + "lugar=" + ciudad + "&" + "plato=");
 					}}
 				/>
+				{err == false ? "" : <p>error</p>}
 			</div>
 			<label>¿Qué plato típico te apetece comer?</label>
 			<div className="form-group" id="lugar">
@@ -72,15 +74,22 @@ const MyInput = () => {
 					onSelect={plato => setPlato(plato)}
 				/>
 			</div>
-			<Link
-				to={{
-					pathname: "/search",
-					search: "?" + "lugar=" + ciudad + "&" + "plato=" + plato
-				}}>
-				<button type="button" className="botoninicio">
+
+			{ciudad != "" ? (
+				<Link
+					to={{
+						pathname: "/search",
+						search: "?" + "lugar=" + ciudad + "&" + "plato=" + plato
+					}}>
+					<button type="button" className="botoninicio" onClick={() => setErr(false)}>
+						Vamos a ello!
+					</button>
+				</Link>
+			) : (
+				<button type="button" className="botoninicio" onClick={() => setErr(true)}>
 					Vamos a ello!
 				</button>
-			</Link>
+			)}
 		</form>
 	);
 };

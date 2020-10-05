@@ -9,7 +9,7 @@ export const Searchresult = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="fondo">
+		<div className="base">
 			<Dishresult />
 			<Dishresultcarousel />
 		</div>
