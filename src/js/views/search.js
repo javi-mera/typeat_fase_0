@@ -24,7 +24,7 @@ export const Search = () => {
 	if (store.dishes !== null) {
 		return (
 			<div className="base">
-				<div className="jumbotron alinearform" id="jumbobackground">
+				<div className="jumbotron" id="jumbobackground">
 					<MainForm info={parsed} />
 				</div>
 				<div className="row">
@@ -37,7 +37,7 @@ export const Search = () => {
 								}
 							})}
 						</div>
-						<div className="card">
+						<div className="card-footer">
 							<div className="d-flex justify-content-between ">
 								<Button
 									href=""

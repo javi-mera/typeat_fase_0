@@ -14,7 +14,7 @@ export const Dish = dish => {
 	return (
 		<div className="container dishcard">
 			<div className="row">
-				<div className="col-6 stylecard">
+				<div className="col stylecard">
 					<h4 className="card-header">Restaurante: {"name"}</h4>
 					<h5 className="card-header">Plato: {dish.dishes.name}</h5>
 					<div className="card-body">

@@ -81,12 +81,12 @@ const MyInput = () => {
 						pathname: "/search",
 						search: "?" + "lugar=" + ciudad + "&" + "plato=" + plato
 					}}>
-					<button type="button" className="botoninicio" onClick={() => setErr(false)}>
+					<button type="button" className="letsgo1" onClick={() => setErr(false)}>
 						Vamos a ello!
 					</button>
 				</Link>
 			) : (
-				<button type="button" className="botoninicio" onClick={() => setErr(true)}>
+				<button type="button" className="letsgo1" onClick={() => setErr(true)}>
 					Vamos a ello!
 				</button>
 			)}

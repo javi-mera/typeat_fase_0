@@ -12,11 +12,13 @@ export const MainForm = parsed => {
 	let datosForm = { Lugar: ciudad, Plato: plato };
 
 	return (
-		<div className="container cont_width">
-			<div className="row">
-				<div className="col text-center">
-					<label htmlFor="formGroupExampleInput">Lugar</label>
+		<div className="container">
+			<div className="row justify-content-center">
+				<div className="col-sm-12 col-md-3 col-lg-3 text-center">
+					<label>Lugar</label>
+					<br />
 					<Autocomplete
+						className="text-center"
 						items={store.city}
 						shouldItemRender={(item, value) => item.name.toLowerCase().indexOf(value.toLowerCase()) > -1}
 						getItemValue={item => item.name}
@@ -47,8 +49,9 @@ export const MainForm = parsed => {
 					/>
 					{err == false ? "" : <p>error</p>}
 				</div>
-				<div className="col text-center">
+				<div className="col-sm-12 col-md-3 col-lg-3 text-center">
 					<label htmlFor="formGroupExampleInput2">Plato típico </label>
+					<br />
 					<Autocomplete
 						items={store.dishes}
 						shouldItemRender={(item, value) => item.name.toLowerCase().indexOf(value.toLowerCase()) > -1}
@@ -70,25 +73,26 @@ export const MainForm = parsed => {
 						value={plato}
 						onChange={e => setPlato(e.target.value)}
 						onSelect={plato => setPlato(plato)}
+						className="text-center"
 					/>
 				</div>
-			</div>
-			<div className="col botondd">
-				<br />
-				{ciudad.length > 0 ? (
-					<button
-						type="button"
-						className="botoninicio botond  justify-content-center alignbutton"
-						onClick={() => {
-							actions.renderSearchInfo("?" + "lugar=" + ciudad + "&" + "plato=" + plato);
-						}}>
-						Vamos a ello!
-					</button>
-				) : (
-					<button type="button" className="botoninicio" onClick={() => setErr(true)}>
-						Vamos a ello
-					</button>
-				)}
+				<div className="col-sm-12 col-md-3 col-lg-3 text-center">
+					<br />
+					{ciudad.length > 0 ? (
+						<button
+							type="button"
+							className="letsgo2"
+							onClick={() => {
+								actions.renderSearchInfo("?" + "lugar=" + ciudad + "&" + "plato=" + plato);
+							}}>
+							Vamos a ello!
+						</button>
+					) : (
+						<button type="button" className="letsgo2" onClick={() => setErr(true)}>
+							Vamos a ello
+						</button>
+					)}
+				</div>
 			</div>
 		</div>
 	);
