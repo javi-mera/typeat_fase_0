@@ -18,7 +18,13 @@ export const Dish = dish => {
 					<h4 className="card-header">Restaurante: {actions.loadRestaurant(dish.dishes.restaurant_id)}</h4>
 					<h5 className="card-header">Plato: {dish.dishes.name}</h5>
 					<div className="card-body">
-						<p className="card-text">img: </p>
+						<img
+							src={dish.dishes.img}
+							border="1"
+							alt="Este es el ejemplo de un texto alternativo"
+							height="50"
+							width="100"
+						/>
 						<p className="card-text">Descripción: {dish.dishes.description}</p>
 						<Link
 							to={{

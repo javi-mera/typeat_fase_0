@@ -1,56 +1,27 @@
-import React, { Component } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { Context } from "../store/appContext";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "../../styles/mapsLeaflet.scss";
 import { MarkerIcon } from "./react-leaflet-icon.js";
 
-/*Creamos un nuevo Marker para que cada vez que aparezca un
-nuevo marker, aparezca el popup*/
-const CustomMarker = props => {
-	const initMarker = ref => {
-		if (ref) {
-			ref.leafletElement.openPopup();
-		}
-	};
-	return <Marker ref={initMarker} {...props} />;
+const MapView = parsed => {
+	const { store, actions } = useContext(Context);
+	useEffect(() => {
+		actions.loadCities();
+		actions.mapMarkers(parsed.info);
+	}, []);
+	console.log(store.coordenadas[0]);
+	return (
+		<Map center={store.coordenadas[0]} zoom={12}>
+			<TileLayer
+				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+				attribution="© <a href=&quot;https://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+			/>
+			{store.coordenadas.map((e, index) => {
+				return <Marker key={index} position={e} />;
+			})}
+		</Map>
+	);
 };
-
-class MapView extends Component {
-	/*Función para capturar la latitud y la longitud*/
-	handleClick(e) {
-		this.setState({ currentLocation: e.latlng });
-	}
-
-	constructor(props) {
-		super(props);
-		this.state = {
-			currentLocation: { lat: 37.37, lng: -6.03 },
-			zoom: 12
-		};
-		this.handleClick = this.handleClick.bind(this);
-	}
-
-	render() {
-		const { currentLocation, zoom } = this.state;
-		return (
-			<Map center={currentLocation} zoom={zoom} onClick={this.handleClick}>
-				<TileLayer
-					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-					attribution="© <a href=&quot;https://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-				/>
-				<CustomMarker position={currentLocation} icon={MarkerIcon}>
-					<Popup>
-						<pre>
-							{"Latitude: " +
-								currentLocation.lat.toFixed(2) +
-								", Longitude: " +
-								currentLocation.lng.toFixed(2)}
-						</pre>
-					</Popup>
-				</CustomMarker>
-			</Map>
-		);
-	}
-}
-
 export default MapView;

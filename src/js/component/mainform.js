@@ -4,12 +4,12 @@ import Autocomplete from "react-autocomplete";
 import "../../styles/jumbotron.scss";
 import "../../styles/search.scss";
 export const MainForm = parsed => {
-	console.log(parsed);
+	//console.log(parsed);
 	const { store, actions } = useContext(Context);
 	const [ciudad, setCiudad] = useState(parsed.info.lugar);
 	const [plato, setPlato] = useState(parsed.info.plato);
 	const [err, setErr] = useState(false);
-	const clearInfo = () => {};
+
 	return (
 		<div className="container cont_width">
 			<div className="row">
@@ -42,9 +42,6 @@ export const MainForm = parsed => {
 						onSelect={ciudad => {
 							setCiudad(ciudad);
 							setErr(false);
-						}}
-						onClick={() => {
-							setCiudad("");
 						}}
 					/>
 					{err == false ? "" : <p>error</p>}

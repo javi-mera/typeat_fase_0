@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Search } from "../views/search";
 import { Context } from "../store/appContext";
 import { useLocation } from "react-router-dom";
+import MapView from "../component/react-leaflet";
 const MyInput = () => {
 	const { store, actions } = useContext(Context);
 	const [ciudad, setCiudad] = useState("");

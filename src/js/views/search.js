@@ -17,7 +17,7 @@ export const Search = () => {
 	const location = useLocation();
 	//actions.loadSearchInfo(location.search);
 	const parsed = qs.parse(location.search);
-	//console.log(location.state["lugar"]);
+	console.log(parsed, "parsed");
 	useEffect(() => {
 		actions.renderSearchInfo(location.search);
 	}, []);
@@ -59,7 +59,7 @@ export const Search = () => {
 						</div>
 					</div>
 					<div className="col-6">
-						<MapView />
+						<MapView info={parsed} />
 					</div>
 				</div>
 			</div>

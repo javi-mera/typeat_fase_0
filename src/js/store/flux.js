@@ -8,6 +8,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			restaurants: [],
 			formInfo: [],
 			city: [],
+			coordenadas: [],
 			token: ""
 		},
 		actions: {
@@ -44,8 +45,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const data = getStore();
 				//let filter = data.restaurants.id.find(rest_id);
 				let filter_rest = data.restaurants.filter(restaurant => restaurant.id == rest_id);
-				console.log(filter_rest[0].name);
+				//console.log(filter_rest[0].name);
 				return filter_rest[0].name;
+			},
+
+			mapMarkers: param => {
+				let data = getStore();
+				if (!param.plato) {
+					let city = data.city.filter(city => city.name.toUpperCase() == param.lugar.toUpperCase());
+					let city_id = city[0].id;
+					console.log(city_id);
+					let filter_restaurant = data.restaurants.filter(restaurant => restaurant.city_id == city_id);
+					let cities_latLong = [];
+					filter_restaurant.forEach(rest => {
+						let coord = { lat: rest.latitude, lng: rest.longitude };
+						cities_latLong.push(coord);
+					});
+					setStore({ coordenadas: cities_latLong });
+				} else {
+					return console.log("en fin serafín");
+				}
+				console.log(param.lugar);
 			},
 
 			//Modificar: usar Dishes para f(x) renderSearch
