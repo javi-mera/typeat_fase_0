@@ -18,8 +18,8 @@ export const Dish = dish => {
 					<h4 className="card-header">Restaurante: {actions.loadRestaurant(dish.dishes.restaurant_id)}</h4>
 					<h5 className="card-header">Plato: {dish.dishes.name}</h5>
 					<div className="card-body">
-						<p className="card-text">Restaurante: {dish.dishes.restaurant_name}</p>
-						<p className="card-text">descripción: {dish.dishes.description}</p>
+						<p className="card-text">img: </p>
+						<p className="card-text">Descripción: {dish.dishes.description}</p>
 						<Link
 							to={{
 								pathname: "/searchresult/" + dish.dishes.id
