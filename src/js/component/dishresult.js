@@ -1,21 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/dishresult.scss";
 import { Link, useParams } from "react-router-dom";
 import RatingStar from "../component/ratingstar";
 
-export const Dishresult = users => {
+export const Dishresult = () => {
 	const { store, actions } = useContext(Context);
 	const { theid } = useParams();
-	const chId = theid - 1;
-	console.log(users);
-	debugger;
+	const dish_id = theid;
+	//console.log(dish_id);
+	let dish_r = actions.getDish(dish_id);
+	console.log(dish_r[0].name);
 	return (
 		<div className="container fondocard shadow p-4 mb-4 bg-white">
 			<div className="row">
 				<div className="col">
 					<h1 className="text-center margentitulo">
-						<ins>RESTAURANTE PINK FLOYD</ins>
+						<ins>{actions.loadRestaurant(dish_r[0].restaurant_id)}</ins>
 					</h1>
 					<div className="row">
 						<img
@@ -24,13 +25,10 @@ export const Dishresult = users => {
 							alt="Chania"
 						/>
 						<div className="col-4">
-							<h3 className="text-center plato">Plato Vanguardista</h3>
+							<h3 className="text-center plato">{dish_r[0].name}</h3>
 							<RatingStar />
 
-							<p>
-								Menudo hambre me acaba de entrar cuando he visto esa jodida carne con su crujiente de
-								vegetales.
-							</p>
+							<p>{dish_r[0].description}</p>
 
 							<span type="button" id="fav" className=" btn btn-outline-warning fab fa-gratipay mt-auto" />
 						</div>

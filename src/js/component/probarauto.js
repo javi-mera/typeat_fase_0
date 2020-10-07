@@ -43,10 +43,12 @@ const MyInput = () => {
 					onSelect={ciudad => {
 						setCiudad(ciudad);
 						actions.duplicateDishes("?" + "lugar=" + ciudad + "&" + "plato=");
+						return <Search info={{ lugar: ciudad, plato: plato }} />;
 					}}
 				/>
 				{err == false ? "" : <p>error</p>}
 			</div>
+
 			<label>¿Qué plato típico te apetece comer?</label>
 			<div className="form-group" id="lugar">
 				{" "}

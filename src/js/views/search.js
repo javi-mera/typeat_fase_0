@@ -15,9 +15,8 @@ export const Search = () => {
 	const [indexTop, setIndexTop] = useState(4);
 	const indexBottom = indexTop - 4;
 	const location = useLocation();
-	//actions.loadSearchInfo(location.search);
 	const parsed = qs.parse(location.search);
-	console.log(parsed, "parsed");
+	//console.log(parsed, "parsed");
 	useEffect(() => {
 		actions.renderSearchInfo(location.search);
 	}, []);

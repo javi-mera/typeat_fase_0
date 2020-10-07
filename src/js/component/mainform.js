@@ -37,11 +37,11 @@ export const MainForm = parsed => {
 						onChange={e => {
 							setCiudad(e.target.value);
 							setPlato("");
-							actions.duplicateDishes("?" + "lugar=" + ciudad + "&" + "plato=");
 						}}
 						onSelect={ciudad => {
 							setCiudad(ciudad);
 							setErr(false);
+							actions.renderSearchInfo("?lugar=" + ciudad + "&plato=");
 						}}
 					/>
 					{err == false ? "" : <p>error</p>}
@@ -68,7 +68,9 @@ export const MainForm = parsed => {
 						}}
 						value={plato}
 						onChange={e => setPlato(e.target.value)}
-						onSelect={plato => setPlato(plato)}
+						onSelect={plato => {
+							setPlato(plato);
+						}}
 					/>
 				</div>
 			</div>
@@ -80,6 +82,8 @@ export const MainForm = parsed => {
 						className="botoninicio botond  justify-content-center alignbutton"
 						onClick={() => {
 							actions.renderSearchInfo("?" + "lugar=" + ciudad + "&" + "plato=" + plato);
+							actions.duplicateDishes("?" + "lugar=" + ciudad + "&" + "plato=" + plato);
+							actions.mapMarkers({ lugar: ciudad, plato: "" });
 						}}>
 						Vamos a ello!
 					</button>

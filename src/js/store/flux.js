@@ -49,12 +49,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				return filter_rest[0].name;
 			},
 
+			getDish: d_id => {
+				const data = getStore();
+				let filter_dishes = data.dishes.filter(dish => dish.id == d_id);
+				return filter_dishes;
+			},
+
 			mapMarkers: param => {
 				let data = getStore();
-				if (!param.plato) {
-					let city = data.city.filter(city => city.name.toUpperCase() == param.lugar.toUpperCase());
-					let city_id = city[0].id;
-					console.log(city_id);
+				let city = data.city.filter(city => city.name.toUpperCase() == param.lugar.toUpperCase());
+				let city_id = city[0].id;
+				//console.log(city_id);
+				if (param.plato == "") {
 					let filter_restaurant = data.restaurants.filter(restaurant => restaurant.city_id == city_id);
 					let cities_latLong = [];
 					filter_restaurant.forEach(rest => {
@@ -63,9 +69,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 					setStore({ coordenadas: cities_latLong });
 				} else {
-					return console.log("en fin serafín");
+					let dish = data.dishes.filter(dish => dish.name.toUpperCase() == param.plato.toUpperCase());
+					let dish_id = dish[0].restaurant_id;
+					console.log(dish_id);
+					let filter_restaurant = data.restaurants.filter(restaurant => restaurant.city_id == dish_id);
+					let cities_latLong = [];
+					console.log(cities_latLong);
+					filter_restaurant.forEach(rest => {
+						let coord = { lat: rest.latitude, lng: rest.longitude };
+						cities_latLong.push(coord);
+					});
+					setStore({ coordenadas: cities_latLong });
 				}
-				console.log(param.lugar);
 			},
 
 			//Modificar: usar Dishes para f(x) renderSearch
@@ -95,6 +110,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let respJson = await response.json();
 				//console.log(respJson, "####");
 				dishes_charge = respJson.info;
+				debugger;
 				setStore({ dishes: dishes_charge });
 			},
 

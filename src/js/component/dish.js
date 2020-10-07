@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import "../../styles/dish.scss";
+import { Dishresult } from "../component/dishresult";
 
 export const Dish = dish => {
 	const { store, actions } = useContext(Context);
@@ -26,11 +27,17 @@ export const Dish = dish => {
 							width="100"
 						/>
 						<p className="card-text">Descripción: {dish.dishes.description}</p>
+
 						<Link
 							to={{
 								pathname: "/searchresult/" + dish.dishes.id
 							}}>
-							<button type="button" className="btn btn-primary" onClick={() => {}}>
+							<button
+								type="button"
+								className="btn btn-primary"
+								onClick={() => {
+									actions.loadDishes();
+								}}>
 								Más info
 							</button>
 						</Link>
