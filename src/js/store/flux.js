@@ -1,5 +1,4 @@
 import { encode } from "base-64";
-
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -22,25 +21,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//console.log(users_charge);
 				setStore({ users: users_charge });
 			},
-
 			loadCities: async () => {
 				let cities = [];
-				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/city";
+				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/city";
 				let response = await fetch(url);
 				let respJson = await response.json();
 				cities = respJson;
 				setStore({ city: cities });
 			},
-
 			loadRestaurants: async () => {
-				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/restaurant";
+				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/restaurant";
 				let response = await fetch(url);
 				let respJson = await response.json();
 				let rest = respJson;
 				//console.log(rest, "aqui");
 				setStore({ restaurants: rest });
 			},
-
 			loadRestaurant: rest_id => {
 				const data = getStore();
 				//let filter = data.restaurants.id.find(rest_id);
@@ -48,33 +44,37 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//console.log(filter_rest[0].name);
 				return filter_rest[0].name;
 			},
-
-			/*mapMarkers: param => {
+			mapMarkers: param => {
 				let data = getStore();
-				if (!param.plato) {
-					let city = data.city.filter(city => city.name.toUpperCase() == param.lugar.toUpperCase());
-
-					let city_id = city[0].id;
-
+				let city = data.city.filter(city => city.name.toUpperCase() == param.lugar.toUpperCase());
+				let city_id = city[0].id;
+				//console.log(city_id);
+				if (param.plato == "") {
 					let filter_restaurant = data.restaurants.filter(restaurant => restaurant.city_id == city_id);
-
 					let cities_latLong = [];
 					filter_restaurant.forEach(rest => {
 						let coord = { lat: rest.latitude, lng: rest.longitude };
 						cities_latLong.push(coord);
 					});
-					console.log(cities_latLong, "hello");
 					setStore({ coordenadas: cities_latLong });
 				} else {
-					return console.log("en fin serafín");
+					let dish = data.dishes.filter(dish => dish.name.toUpperCase() == param.plato.toUpperCase());
+					let dish_id = dish[0].restaurant_id;
+					console.log(dish_id);
+					let filter_restaurant = data.restaurants.filter(restaurant => restaurant.city_id == dish_id);
+					let cities_latLong = [];
+					console.log(cities_latLong);
+					filter_restaurant.forEach(rest => {
+						let coord = { lat: rest.latitude, lng: rest.longitude };
+						cities_latLong.push(coord);
+					});
+					setStore({ coordenadas: cities_latLong });
 				}
-				console.log(param.lugar);
 			},
-*/
 			//Modificar: usar Dishes para f(x) renderSearch
 			loadDishes: async () => {
 				let dishes_charge = [];
-				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/dish";
+				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/dish";
 				let response = await fetch(url);
 				let respJson = await response.json();
 				//console.log(respJson);
@@ -82,17 +82,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//console.log(users_charge);
 				setStore({ dishes: dishes_charge });
 			},
-
 			loadSearchInfo: async params => {
 				//console.log(params);
-				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/search" + params;
+				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/search" + params;
 				let response = await fetch(url);
 			},
-
 			renderSearchInfo: async params => {
 				//console.log(params);
 				let dishes_charge = [];
-				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/render_results" + params;
+				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/render_results" + params;
 				let response = await fetch(url);
 				//console.log(response);
 				let respJson = await response.json();
@@ -100,16 +98,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				dishes_charge = respJson.info;
 				setStore({ dishes: dishes_charge });
 			},
-
 			duplicateDishes: async params => {
 				let dishes_charge = [];
-				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/render_results" + params;
+				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/render_results" + params;
 				let response = await fetch(url);
 				let respJson = await response.json();
 				dishes_charge = respJson.info;
 				setStore({ dishes: dishes_charge });
 				const data = await getStore();
-
 				function removeDuplicates(originalArray, prop) {
 					let newArray = [];
 					let lookupObject = {};
@@ -121,20 +117,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 					return newArray;
 				}
-
 				let uniqueArray = removeDuplicates(data.dishes, "name");
-
 				//let filterDishes = data.dishes.filter((dish, index) => data.dishes.name.indexOf(dish) === index);
 				//console.log(uniqueArray);
 				setStore({ dishes: uniqueArray });
 			},
-
 			inputForm: item => {
 				const data = getStore();
 				return setStore({ formInfo: item });
 			},
 			// Use getActions to call a function within a fuction
-
 			login: async (email, password) => {
 				let response = await fetch(
 					"https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/login",
@@ -152,5 +144,4 @@ const getState = ({ getStore, getActions, setStore }) => {
 		}
 	};
 };
-
 export default getState;

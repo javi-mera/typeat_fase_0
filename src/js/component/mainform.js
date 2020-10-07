@@ -17,7 +17,6 @@ export const MainForm = parsed => {
 					<label>Lugar</label>
 					<br />
 					<Autocomplete
-						className="text-center"
 						items={store.city}
 						shouldItemRender={(item, value) => item.name.toLowerCase().indexOf(value.toLowerCase()) > -1}
 						getItemValue={item => item.name}
@@ -38,12 +37,11 @@ export const MainForm = parsed => {
 						value={ciudad}
 						onChange={e => {
 							setCiudad(e.target.value);
-							setPlato("");
-							actions.duplicateDishes("?" + "lugar=" + ciudad + "&" + "plato=");
 						}}
 						onSelect={ciudad => {
 							setCiudad(ciudad);
 							setErr(false);
+							actions.renderSearchInfo("?lugar=" + ciudad + "&plato=");
 						}}
 					/>
 					{err == false ? "" : <p>error</p>}
@@ -83,6 +81,8 @@ export const MainForm = parsed => {
 							className="letsgo2"
 							onClick={() => {
 								actions.renderSearchInfo("?" + "lugar=" + ciudad + "&" + "plato=" + plato);
+								actions.duplicateDishes("?" + "lugar=" + ciudad + "&" + "plato=" + plato);
+								actions.mapMarkers({ lugar: ciudad, plato: "" });
 							}}>
 							Vamos a ello!
 						</button>

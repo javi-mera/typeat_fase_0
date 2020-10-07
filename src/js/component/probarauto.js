@@ -42,7 +42,9 @@ const MyInput = () => {
 					onChange={e => setCiudad(e.target.value)}
 					onSelect={ciudad => {
 						setCiudad(ciudad);
+						setPlato("");
 						actions.duplicateDishes("?" + "lugar=" + ciudad + "&" + "plato=");
+						return <Search info={{ lugar: ciudad, plato: plato }} />;
 					}}
 				/>
 				{err == false ? "" : <p>error</p>}
@@ -79,12 +81,17 @@ const MyInput = () => {
 						pathname: "/search",
 						search: "?" + "lugar=" + ciudad + "&" + "plato=" + plato
 					}}>
-					<button type="button" className="letsgo1" onClick={() => setErr(false)}>
+					<button
+						type="button"
+						className="botoninicio"
+						onClick={() => {
+							setErr(false);
+						}}>
 						Vamos a ello!
 					</button>
 				</Link>
 			) : (
-				<button type="button" className="letsgo1" onClick={() => setErr(true)}>
+				<button type="button" className="botoninicio" onClick={() => setErr(true)}>
 					Vamos a ello!
 				</button>
 			)}
