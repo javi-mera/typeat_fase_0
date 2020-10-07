@@ -5,8 +5,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			users: [],
 			dishes: [],
+			restaurants: [],
 			formInfo: [],
 			city: [],
+			coordenadas: [],
 			token: ""
 		},
 		actions: {
@@ -30,6 +32,45 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ city: cities });
 			},
 
+			loadRestaurants: async () => {
+				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/restaurant";
+				let response = await fetch(url);
+				let respJson = await response.json();
+				let rest = respJson;
+				//console.log(rest, "aqui");
+				setStore({ restaurants: rest });
+			},
+
+			loadRestaurant: rest_id => {
+				const data = getStore();
+				//let filter = data.restaurants.id.find(rest_id);
+				let filter_rest = data.restaurants.filter(restaurant => restaurant.id == rest_id);
+				//console.log(filter_rest[0].name);
+				return filter_rest[0].name;
+			},
+
+			/*mapMarkers: param => {
+				let data = getStore();
+				if (!param.plato) {
+					let city = data.city.filter(city => city.name.toUpperCase() == param.lugar.toUpperCase());
+
+					let city_id = city[0].id;
+
+					let filter_restaurant = data.restaurants.filter(restaurant => restaurant.city_id == city_id);
+
+					let cities_latLong = [];
+					filter_restaurant.forEach(rest => {
+						let coord = { lat: rest.latitude, lng: rest.longitude };
+						cities_latLong.push(coord);
+					});
+					console.log(cities_latLong, "hello");
+					setStore({ coordenadas: cities_latLong });
+				} else {
+					return console.log("en fin serafín");
+				}
+				console.log(param.lugar);
+			},
+*/
 			//Modificar: usar Dishes para f(x) renderSearch
 			loadDishes: async () => {
 				let dishes_charge = [];
@@ -49,13 +90,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			renderSearchInfo: async params => {
-				console.log(params);
+				//console.log(params);
 				let dishes_charge = [];
 				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/render_results" + params;
 				let response = await fetch(url);
-				console.log(response);
+				//console.log(response);
 				let respJson = await response.json();
-				console.log(respJson, "####");
+				//console.log(respJson, "####");
 				dishes_charge = respJson.info;
 				setStore({ dishes: dishes_charge });
 			},
@@ -84,7 +125,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let uniqueArray = removeDuplicates(data.dishes, "name");
 
 				//let filterDishes = data.dishes.filter((dish, index) => data.dishes.name.indexOf(dish) === index);
-				console.log(uniqueArray);
+				//console.log(uniqueArray);
 				setStore({ dishes: uniqueArray });
 			},
 
@@ -105,7 +146,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				);
 				let respJson = await response.json();
-				console.log(respJson);
+				//console.log(respJson);
 				setStore({ token: respJson.token });
 			}
 		}

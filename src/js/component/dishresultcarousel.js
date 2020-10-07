@@ -21,9 +21,10 @@ export const Dishresultcarousel = users => {
 							<Row>
 								<Col>
 									<Image
-										src="https://cocina-casera.com/wp-content/uploads/2016/02/migas-extremenas.jpeg"
+										src="https://static4.abc.es/media/bienestar/2020/05/22/tortilla-patatas-k9tF--620x349@abc.jpeg"
 										fluid
 										thumbnail
+										className="carrouimg"
 									/>
 								</Col>
 								<Col id="posicion_nombre_plato">
@@ -48,6 +49,7 @@ export const Dishresultcarousel = users => {
 										src="https://media-cdn.tripadvisor.com/media/photo-s/11/ea/cb/39/prueba-de-cerdo.jpg"
 										fluid
 										thumbnail
+										className="carrouimg"
 									/>
 								</Col>
 								<Col id="posicion_nombre_plato">
@@ -68,7 +70,12 @@ export const Dishresultcarousel = users => {
 						<Col md={{ span: 8, offset: 2 }}>
 							<Row>
 								<Col>
-									<Image src="https://i.ytimg.com/vi/YUfYMvGZVA4/maxresdefault.jpg" fluid thumbnail />
+									<Image
+										src="https://i.ytimg.com/vi/YUfYMvGZVA4/maxresdefault.jpg"
+										fluid
+										thumbnail
+										className="carrouimg"
+									/>
 								</Col>
 								<Col id="posicion_nombre_plato">
 									<h3>Caldereta de cordero</h3>

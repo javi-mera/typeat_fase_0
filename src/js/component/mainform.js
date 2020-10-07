@@ -3,13 +3,12 @@ import { Context } from "../store/appContext";
 import Autocomplete from "react-autocomplete";
 import "../../styles/jumbotron.scss";
 import "../../styles/search.scss";
-
 export const MainForm = parsed => {
+	//console.log(parsed);
 	const { store, actions } = useContext(Context);
 	const [ciudad, setCiudad] = useState(parsed.info.lugar);
 	const [plato, setPlato] = useState(parsed.info.plato);
 	const [err, setErr] = useState(false);
-	let datosForm = { Lugar: ciudad, Plato: plato };
 
 	return (
 		<div className="container">
@@ -40,10 +39,10 @@ export const MainForm = parsed => {
 						onChange={e => {
 							setCiudad(e.target.value);
 							setPlato("");
+							actions.duplicateDishes("?" + "lugar=" + ciudad + "&" + "plato=");
 						}}
 						onSelect={ciudad => {
 							setCiudad(ciudad);
-							actions.duplicateDishes("?" + "lugar=" + ciudad + "&" + "plato=");
 							setErr(false);
 						}}
 					/>

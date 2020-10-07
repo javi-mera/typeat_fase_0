@@ -17,7 +17,7 @@ export const Search = () => {
 	const location = useLocation();
 	//actions.loadSearchInfo(location.search);
 	const parsed = qs.parse(location.search);
-	//console.log(location.state["lugar"]);
+	console.log(parsed, "parsed");
 	useEffect(() => {
 		actions.renderSearchInfo(location.search);
 	}, []);
@@ -28,15 +28,14 @@ export const Search = () => {
 					<MainForm info={parsed} />
 				</div>
 				<div className="row">
-					<div className="card col-6 base border border-0">
-						<div className="container">
-							{store.dishes.map((e, index) => {
-								if (index + 1 <= indexTop && index + 1 > indexBottom) {
-									console.log(index);
-									return <Dish key={index} dishes={e} />;
-								}
-							})}
-						</div>
+					<div className="card col-6 base border">
+						{store.dishes.map((e, index) => {
+							if (index + 1 <= indexTop && index + 1 > indexBottom) {
+								console.log(index);
+								return <Dish key={index} dishes={e} />;
+							}
+						})}
+
 						<div className="card-footer">
 							<div className="d-flex justify-content-between ">
 								<Button
@@ -59,7 +58,7 @@ export const Search = () => {
 						</div>
 					</div>
 					<div className="col-6">
-						<MapView />
+						<MapView info={parsed} />
 					</div>
 				</div>
 			</div>

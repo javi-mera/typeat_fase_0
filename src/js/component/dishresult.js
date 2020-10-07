@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/dishresult.scss";
 import { Link, useParams } from "react-router-dom";
@@ -6,21 +6,23 @@ import RatingStar from "../component/ratingstar";
 
 export const Dishresult = users => {
 	const { store, actions } = useContext(Context);
-	const { theid } = useParams();
-	const chId = theid - 1;
-	console.log(users);
-	debugger;
+	//const { theid } = useParams();
+	//const chId = theid - 1;
+	//console.log(users);
+	useEffect(() => {
+		actions.loadDishes();
+	}, []);
 	return (
 		<div className="container fondocard shadow p-4 mb-4 bg-white">
 			<div className="row">
 				<div className="col">
 					<h1 className="text-center margentitulo">
-						<ins>RESTAURANTE PINK FLOYD</ins>
+						<ins>RESTAURANTE PINK FLOYD: </ins>
 					</h1>
 					<div className="row">
 						<img
 							className="col-8 img-responsive"
-							src="https://alianzza.es/wp-content/uploads/2015/03/dsc_6727.jpg"
+							src="https://static4.abc.es/media/bienestar/2020/05/22/tortilla-patatas-k9tF--620x349@abc.jpeg"
 							alt="Chania"
 						/>
 						<div className="col-4">
