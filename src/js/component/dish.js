@@ -18,7 +18,7 @@ export const Dish = dish => {
 				<div className="col styleimg">
 					<img
 						className="img-fluid"
-						src="https://static4.abc.es/media/bienestar/2020/05/22/tortilla-patatas-k9tF--620x349@abc.jpeg"
+						src={dish.dishes.img}
 						alt="Este es el ejemplo de un texto alternativo"
 						height="200"
 						width="372"
@@ -35,7 +35,12 @@ export const Dish = dish => {
 							to={{
 								pathname: "/searchresult/" + dish.dishes.id
 							}}>
-							<button type="button" className="btn btn-primary" onClick={() => ""}>
+							<button
+								type="button"
+								className="btn btn-primary"
+								onClick={() => {
+									actions.loadDishes();
+								}}>
 								Más info
 							</button>
 						</Link>

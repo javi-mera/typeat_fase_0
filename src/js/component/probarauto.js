@@ -83,7 +83,7 @@ const MyInput = () => {
 					}}>
 					<button
 						type="button"
-						className="botoninicio"
+						className="letsgo1"
 						onClick={() => {
 							setErr(false);
 						}}>
@@ -91,7 +91,7 @@ const MyInput = () => {
 					</button>
 				</Link>
 			) : (
-				<button type="button" className="botoninicio" onClick={() => setErr(true)}>
+				<button type="button" className="letsgo1" onClick={() => setErr(true)}>
 					Vamos a ello!
 				</button>
 			)}

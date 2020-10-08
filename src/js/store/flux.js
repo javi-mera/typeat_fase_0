@@ -23,14 +23,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			loadCities: async () => {
 				let cities = [];
-				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/city";
+				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/city";
 				let response = await fetch(url);
 				let respJson = await response.json();
 				cities = respJson;
 				setStore({ city: cities });
 			},
 			loadRestaurants: async () => {
-				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/restaurant";
+				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/restaurant";
 				let response = await fetch(url);
 				let respJson = await response.json();
 				let rest = respJson;
@@ -43,6 +43,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let filter_rest = data.restaurants.filter(restaurant => restaurant.id == rest_id);
 				//console.log(filter_rest[0].name);
 				return filter_rest[0].name;
+			},
+			getDish: d_id => {
+				const data = getStore();
+				let filter_dishes = data.dishes.filter(dish => dish.id == d_id);
+				return filter_dishes;
 			},
 			mapMarkers: param => {
 				let data = getStore();
@@ -74,7 +79,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//Modificar: usar Dishes para f(x) renderSearch
 			loadDishes: async () => {
 				let dishes_charge = [];
-				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/dish";
+				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/dish";
 				let response = await fetch(url);
 				let respJson = await response.json();
 				//console.log(respJson);
@@ -84,23 +89,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			loadSearchInfo: async params => {
 				//console.log(params);
-				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/search" + params;
+				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/search" + params;
 				let response = await fetch(url);
 			},
 			renderSearchInfo: async params => {
 				//console.log(params);
 				let dishes_charge = [];
-				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/render_results" + params;
+				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/render_results" + params;
 				let response = await fetch(url);
 				//console.log(response);
 				let respJson = await response.json();
 				//console.log(respJson, "####");
 				dishes_charge = respJson.info;
+				debugger;
 				setStore({ dishes: dishes_charge });
 			},
 			duplicateDishes: async params => {
 				let dishes_charge = [];
-				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/render_results" + params;
+				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/render_results" + params;
 				let response = await fetch(url);
 				let respJson = await response.json();
 				dishes_charge = respJson.info;

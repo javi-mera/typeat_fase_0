@@ -11,7 +11,7 @@ export const Funcionamiento = () => {
 			<div className="jumbotron jumbfuncionamiento">
 				<div className="card-deck">
 					<div className="card rounded-circle" id="card_func">
-						<img src={searchIcon} className="card-img-top" alt="..." />
+						<img src={searchIcon} id="card_func_img" alt="..." />
 						<div className="card-body">
 							<h5 className="card-title">Encuentra</h5>
 							<p className="card-text">
@@ -21,7 +21,7 @@ export const Funcionamiento = () => {
 						</div>
 					</div>
 					<div className="card rounded-circle" id="card_func">
-						<img src={findIcon} className="card-img-top" alt="..." />
+						<img src={findIcon} id="card_func_img" alt="..." />
 						<div className="card-body">
 							<h5 className="card-title">Elige</h5>
 							<p className="card-text">
@@ -31,7 +31,7 @@ export const Funcionamiento = () => {
 						</div>
 					</div>
 					<div className="card rounded-circle" id="card_func">
-						<img src={foodIcon} className="card-img-top" alt="..." />
+						<img src={foodIcon} id="card_func_img" alt="..." />
 						<div className="card-body">
 							<h5 className="card-title">Y disfruta!</h5>
 							<p className="card-text">
