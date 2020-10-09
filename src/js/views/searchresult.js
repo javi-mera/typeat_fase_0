@@ -21,11 +21,7 @@ export const Searchresult = () => {
 	return (
 		<div className="base">
 			<Dishresult />
-
-			{dish_r_all.map((e, index) => {
-				console.log(e, index);
-				return <Dishresultcarousel key={index} dish_r_all={e} />;
-			})}
+			<Dishresultcarousel dish_r_all={dish_r_all} />;
 		</div>
 	);
 };
