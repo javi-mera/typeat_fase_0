@@ -11,8 +11,8 @@ import Button from "react-bootstrap/Button";
 export const Dishresultcarousel = hola => {
 	const { store, actions } = useContext(Context);
 	const { theid } = useParams();
-	//const dish_id = theid;
-	//console.log(dish_id);
+	const dish_id = theid;
+	console.log(dish_id);
 	//let dish_r = actions.getDish(dish_id);
 	//console.log(dish_r);
 
@@ -28,39 +28,43 @@ export const Dishresultcarousel = hola => {
 	return (
 		<Carousel className="carouselmargen" id="carouselfondo">
 			{hola.dish_r_all.map((e, index) => {
-				return (
-					<Carousel.Item key={index} className="carouselmargen2">
-						<Container>
-							<Row>
-								<Col md={{ span: 8, offset: 2 }}>
-									<Row>
-										<Col>
-											<Image src={e.img} fluid thumbnail className="carrouimg" />
-										</Col>
-										<Col id="posicion_nombre_plato">
-											<h3>{e.name}</h3>
-											<Link
-												to={{
-													pathname: "/searchresult/" + e.id
-												}}>
-												<Button
-													variant="warning"
-													size="sm"
-													className="posicion_boton"
-													type="button"
-													onClick={() => {
-														actions.loadDishes();
+				if (e.id == dish_id) {
+					return null;
+				} else {
+					return (
+						<Carousel.Item key={index} className="carouselmargen2">
+							<Container>
+								<Row>
+									<Col md={{ span: 8, offset: 2 }}>
+										<Row>
+											<Col>
+												<Image src={e.img} fluid thumbnail className="carrouimg" />
+											</Col>
+											<Col id="posicion_nombre_plato">
+												<h3>{e.name}</h3>
+												<Link
+													to={{
+														pathname: "/searchresult/" + e.id
 													}}>
-													Cuéntame más
-												</Button>
-											</Link>
-										</Col>
-									</Row>
-								</Col>
-							</Row>
-						</Container>
-					</Carousel.Item>
-				);
+													<Button
+														variant="warning"
+														size="sm"
+														className="posicion_boton"
+														type="button"
+														onClick={() => {
+															actions.loadDishes();
+														}}>
+														Cuéntame más
+													</Button>
+												</Link>
+											</Col>
+										</Row>
+									</Col>
+								</Row>
+							</Container>
+						</Carousel.Item>
+					);
+				}
 			})}
 		</Carousel>
 	);
