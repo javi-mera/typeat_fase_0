@@ -10,7 +10,7 @@ export const Dishresult = users => {
 	const dish_id = theid;
 	//console.log(dish_id);
 	let dish_r = actions.getDish(dish_id);
-	console.log(dish_r[0].name);
+	//console.log(dish_r[0].name);
 	return (
 		<div className="container fondocard shadow p-4 mb-4 bg-white">
 			<div className="row">

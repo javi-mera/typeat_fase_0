@@ -8,9 +8,22 @@ import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 
-export const Dishresultcarousel = users => {
+export const Dishresultcarousel = hola => {
 	const { store, actions } = useContext(Context);
 	const { theid } = useParams();
+	//const dish_id = theid;
+	//console.log(dish_id);
+	//let dish_r = actions.getDish(dish_id);
+	//console.log(dish_r);
+
+	//let dish_r_id = dish_r[0].restaurant_id;
+	//let dish_r_all = actions.getDishesOfRest(dish_r_id);
+	//console.log(dish_r_all);
+	//console.log(dish_r_id + "aaa");
+	//let dish_r_tds = actions.getDish();
+	//console.log(dish_r_tds + "bbb");
+	//let dish_rest = actions.getRestaurant(dish_r_id);
+	//console.log(dish_rest);
 
 	return (
 		<Carousel className="carouselmargen" id="carouselfondo">
@@ -20,15 +33,10 @@ export const Dishresultcarousel = users => {
 						<Col md={{ span: 8, offset: 2 }}>
 							<Row>
 								<Col>
-									<Image
-										src="https://static4.abc.es/media/bienestar/2020/05/22/tortilla-patatas-k9tF--620x349@abc.jpeg"
-										fluid
-										thumbnail
-										className="carrouimg"
-									/>
+									<Image src={hola.dish_r_all.img} fluid thumbnail className="carrouimg" />
 								</Col>
 								<Col id="posicion_nombre_plato">
-									<h3>Migas extremeñas</h3>
+									<h3>{hola.dish_r_all.name}</h3>
 
 									<Button variant="warning" size="sm" className="posicion_boton">
 										Cuéntame más
@@ -40,6 +48,26 @@ export const Dishresultcarousel = users => {
 				</Container>
 			</Carousel.Item>
 			<Carousel.Item className="carouselmargen2">
+				<Container>
+					<Row>
+						<Col md={{ span: 8, offset: 2 }}>
+							<Row>
+								<Col>
+									<Image src={hola.dish_r_all.img} fluid thumbnail className="carrouimg" />
+								</Col>
+								<Col id="posicion_nombre_plato">
+									<h3>{hola.dish_r_all.name}</h3>
+
+									<Button variant="warning" size="sm" className="posicion_boton">
+										Cuéntame más
+									</Button>
+								</Col>
+							</Row>
+						</Col>
+					</Row>
+				</Container>
+			</Carousel.Item>
+			{/*<Carousel.Item className="carouselmargen2">
 				<Container>
 					<Row>
 						<Col md={{ span: 8, offset: 2 }}>
@@ -88,7 +116,7 @@ export const Dishresultcarousel = users => {
 						</Col>
 					</Row>
 				</Container>
-			</Carousel.Item>
+			</Carousel.Item>*/}
 		</Carousel>
 
 		/*<div id="carouselExampleControls" className="carousel slide" data-ride="carousel">

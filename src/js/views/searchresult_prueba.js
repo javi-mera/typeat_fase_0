@@ -4,7 +4,7 @@ import { Context } from "../store/appContext";
 import { Button } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import { Dishresult } from "../component/dishresult";
-import { Dishresultcarousel } from "../component/dishresultcarousel";
+import { Dishresultcarousel_prueba } from "../component/dishresultcarousel_prueba";
 
 export const Searchresult = () => {
 	const { store, actions } = useContext(Context);
@@ -24,7 +24,7 @@ export const Searchresult = () => {
 
 			{dish_r_all.map((e, index) => {
 				console.log(e, index);
-				return <Dishresultcarousel key={index} dish_r_all={e} />;
+				return <Dishresultcarousel_prueba key={index} dish_r_all={e} />;
 			})}
 		</div>
 	);

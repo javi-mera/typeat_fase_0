@@ -44,11 +44,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//console.log(filter_rest[0].name);
 				return filter_rest[0].name;
 			},
+
 			getDish: d_id => {
 				const data = getStore();
 				let filter_dishes = data.dishes.filter(dish => dish.id == d_id);
 				return filter_dishes;
 			},
+			getDishesOfRest: d_r => {
+				const data = getStore();
+				let filter_dishes = data.dishes.filter(dish => dish.restaurant_id == d_r);
+				return filter_dishes;
+			},
+			getRestaurant: r_id => {
+				const data = getStore();
+				let filter_restau = data.restaurants.filter(restaurant => restaurant.id == r_id);
+				return filter_restau;
+			},
+
 			mapMarkers: param => {
 				let data = getStore();
 				let city = data.city.filter(city => city.name.toUpperCase() == param.lugar.toUpperCase());

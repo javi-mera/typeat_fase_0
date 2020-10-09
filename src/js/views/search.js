@@ -31,7 +31,7 @@ export const Search = () => {
 					<div className="card col-6 base border">
 						{store.dishes.map((e, index) => {
 							if (index + 1 <= indexTop && index + 1 > indexBottom) {
-								console.log(index);
+								//console.log(e, index + "eso");
 								return <Dish key={index} dishes={e} />;
 							}
 						})}
