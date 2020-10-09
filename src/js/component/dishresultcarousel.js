@@ -39,10 +39,21 @@ export const Dishresultcarousel = hola => {
 										</Col>
 										<Col id="posicion_nombre_plato">
 											<h3>{e.name}</h3>
-
-											<Button variant="warning" size="sm" className="posicion_boton">
-												Cuéntame más
-											</Button>
+											<Link
+												to={{
+													pathname: "/searchresult/" + e.id
+												}}>
+												<Button
+													variant="warning"
+													size="sm"
+													className="posicion_boton"
+													type="button"
+													onClick={() => {
+														actions.loadDishes();
+													}}>
+													Cuéntame más
+												</Button>
+											</Link>
 										</Col>
 									</Row>
 								</Col>
