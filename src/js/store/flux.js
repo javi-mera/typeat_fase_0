@@ -74,18 +74,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 						cities_latLong.push(coord);
 					});
 					setStore({ coordenadas: cities_latLong });
-				} else {
-					let dish = data.dishes.filter(dish => dish.name.toUpperCase() == param.plato.toUpperCase());
-					let dish_id = dish[0].restaurant_id;
-					console.log(dish_id);
-					let filter_restaurant = data.restaurants.filter(restaurant => restaurant.city_id == dish_id);
+				} else if (param.plato != "") {
+					let filter_dishes = [];
+					data.dishes.forEach(dish => {
+						if (dish.name.toUpperCase() == param.plato.toUpperCase()) {
+							filter_dishes.push(dish);
+						}
+					});
+					console.log(filter_dishes);
+					let filter_rest = [];
+					filter_dishes.forEach(dish => {
+						let rest_id = dish.restaurant_id;
+						console.log(rest_id);
+						let filter_restaurant = data.restaurants.filter(restaurant => restaurant.id == rest_id);
+						filter_rest.push(filter_restaurant);
+					});
+					console.log(filter_rest);
 					let cities_latLong = [];
-					console.log(cities_latLong);
-					filter_restaurant.forEach(rest => {
-						let coord = { lat: rest.latitude, lng: rest.longitude };
+					filter_rest.forEach(rest => {
+						console.log(rest);
+						let coord = { lat: rest[0].latitude, lng: rest[0].longitude };
 						cities_latLong.push(coord);
 					});
 					setStore({ coordenadas: cities_latLong });
+					console.log(cities_latLong);
 				}
 			},
 			//Modificar: usar Dishes para f(x) renderSearch

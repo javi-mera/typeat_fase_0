@@ -9,7 +9,6 @@ export const MainForm = parsed => {
 	const [ciudad, setCiudad] = useState(parsed.info.lugar);
 	const [plato, setPlato] = useState(parsed.info.plato);
 	const [err, setErr] = useState(false);
-
 	return (
 		<div className="container">
 			<div className="row justify-content-center">
@@ -36,11 +35,12 @@ export const MainForm = parsed => {
 						}}
 						value={ciudad}
 						onChange={e => {
-							setCiudad(e.target.value);
+							setCiudad(e.target.value), setPlato("");
 						}}
 						onSelect={ciudad => {
 							setCiudad(ciudad);
 							setErr(false);
+							actions.mapMarkers({ lugar: ciudad, plato: plato });
 							actions.renderSearchInfo("?lugar=" + ciudad + "&plato=");
 						}}
 					/>
@@ -68,21 +68,27 @@ export const MainForm = parsed => {
 							}
 						}}
 						value={plato}
-						onChange={e => setPlato(e.target.value)}
-						onSelect={plato => setPlato(plato)}
+						onChange={e => {
+							setPlato(e.target.value);
+						}}
+						onSelect={plato => {
+							setPlato(plato);
+							actions.mapMarkers({ lugar: ciudad, plato: plato });
+							actions.renderSearchInfo("?" + "lugar=" + ciudad + "&" + "plato=" + plato);
+							actions.duplicateDishes("?" + "lugar=" + ciudad + "&" + "plato=" + plato);
+						}}
 						className="text-center"
 					/>
 				</div>
 				<div className="col-sm-12 col-md-3 col-lg-3 text-center">
 					<br />
-					{ciudad.length > 0 ? (
+					{/*ciudad.length > 0 ? (
 						<button
 							type="button"
 							className="letsgo2"
 							onClick={() => {
 								actions.renderSearchInfo("?" + "lugar=" + ciudad + "&" + "plato=" + plato);
 								actions.duplicateDishes("?" + "lugar=" + ciudad + "&" + "plato=" + plato);
-								actions.mapMarkers({ lugar: ciudad, plato: "" });
 							}}>
 							Vamos a ello!
 						</button>
@@ -90,7 +96,7 @@ export const MainForm = parsed => {
 						<button type="button" className="letsgo2" onClick={() => setErr(true)}>
 							Vamos a ello
 						</button>
-					)}
+                    )*/}
 				</div>
 			</div>
 		</div>
