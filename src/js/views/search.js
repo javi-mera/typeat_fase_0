@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import "../../styles/home.scss";
-import "../../styles/jumbotron.scss";
+//import "../../styles/jumbotron.scss";
+import "../../styles/search.scss";
 import { MainForm } from "../component/mainform";
 import { Dish } from "../component/dish";
 import { Context } from "../store/appContext";
@@ -40,7 +41,7 @@ export const Search = () => {
 							<div className="d-flex justify-content-between ">
 								<Button
 									href=""
-									className="alignbutton m-1 bg-dark"
+									className="m-1 bg-dark"
 									onClick={() => {
 										setIndexTop(indexTop - 4);
 									}}>
@@ -48,7 +49,7 @@ export const Search = () => {
 								</Button>
 								<Button
 									href=""
-									className="alignbutton m-1 bg-dark"
+									className="m-1 bg-dark"
 									onClick={() => {
 										setIndexTop(indexTop + 4);
 									}}>
@@ -66,18 +67,16 @@ export const Search = () => {
 	} else {
 		return (
 			<div className="base">
-				<div className="jumbotron alinearform" id="jumbobackground">
+				<div className="jumbotron" id="jumbobackground">
 					<MainForm info={parsed} />
 				</div>
 				<div className="row">
-					<div className="card col-6 base">
-						<div className="container cont_width dishcard" />
-
+					<div className="card col-6 base border">
 						<div className="card-footer">
 							<div className="d-flex justify-content-between ">
 								<Button
 									href=""
-									className="alignbutton m-1 bg-dark"
+									className=" m-1 bg-dark"
 									onClick={() => {
 										setIndexTop(indexTop - 4);
 									}}>
@@ -85,7 +84,7 @@ export const Search = () => {
 								</Button>
 								<Button
 									href=""
-									className="alignbutton m-1 bg-dark"
+									className=" m-1 bg-dark"
 									onClick={() => {
 										setIndexTop(indexTop + 4);
 									}}>

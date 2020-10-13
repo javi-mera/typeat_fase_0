@@ -7,10 +7,10 @@ import foodIcon from "../../img/icons8-omlette-64.png";
 
 export const Funcionamiento = () => {
 	return (
-		<div className="container-fluid" id="jumbosizefun">
-			<div className="jumbotron jumbfuncionamiento">
+		<div className="container-fluid">
+			<div className="jumbotron ">
 				<div className="card-deck">
-					<div className="card rounded-circle" id="card_func">
+					<div className="col-sm-12 card rounded-circle">
 						<img src={searchIcon} id="card_func_img" alt="..." />
 						<div className="card-body">
 							<h5 className="card-title">Encuentra</h5>
@@ -20,7 +20,8 @@ export const Funcionamiento = () => {
 							</p>
 						</div>
 					</div>
-					<div className="card rounded-circle" id="card_func">
+
+					<div className="col-sm-12 card rounded-circle">
 						<img src={findIcon} id="card_func_img" alt="..." />
 						<div className="card-body">
 							<h5 className="card-title">Elige</h5>
@@ -30,7 +31,7 @@ export const Funcionamiento = () => {
 							</p>
 						</div>
 					</div>
-					<div className="card rounded-circle" id="card_func">
+					<div className="col-sm-12 card rounded-circle">
 						<img src={foodIcon} id="card_func_img" alt="..." />
 						<div className="card-body">
 							<h5 className="card-title">Y disfruta!</h5>

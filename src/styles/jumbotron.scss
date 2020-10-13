@@ -11,15 +11,12 @@ body{
      background-color: rgb(253, 253, 193);
 }
 
-#jumbosizefun{
-    padding: 0rem 2rem;
-    
+.jumbfuncionamiento{
+    background-color:  rgb(235, 252, 199);
+    padding-top: 2rem;
 }
 
-#card_func{
-    margin: 3rem;
-    
-}
+
 
 #card_func_img{
     width: 4rem;
@@ -82,10 +79,6 @@ input{
     background-color: #383737;
 }
 
-.jumbfuncionamiento{
-    background-color: rgb(247, 247, 126);
-    padding-top: 0.5rem;
-}
 
 
 .carrouimg{
@@ -105,5 +98,7 @@ input{
 }
 
 .card-deck{
-    padding-top: 2rem
+    padding-top: 2rem;
+    background-color:  rgb(235, 252, 199);
+    
 }

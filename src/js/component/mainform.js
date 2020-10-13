@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import Autocomplete from "react-autocomplete";
-import "../../styles/jumbotron.scss";
+//import "../../styles/jumbotron.scss";
 import "../../styles/search.scss";
 export const MainForm = parsed => {
 	//console.log(parsed);
@@ -12,7 +12,7 @@ export const MainForm = parsed => {
 	return (
 		<div className="container">
 			<div className="row justify-content-center">
-				<div className="col-sm-12 col-md-3 col-lg-3 text-center">
+				<div className="col-sm-12 col-md-4 col-lg-4 text-center">
 					<label>Lugar</label>
 					<br />
 					<Autocomplete
@@ -46,7 +46,7 @@ export const MainForm = parsed => {
 					/>
 					{err == false ? "" : <p>error</p>}
 				</div>
-				<div className="col-sm-12 col-md-3 col-lg-3 text-center">
+				<div className="col-sm-12 col-md-4 col-lg-4 text-center">
 					<label htmlFor="formGroupExampleInput2">Plato típico </label>
 					<br />
 					<Autocomplete
@@ -80,9 +80,9 @@ export const MainForm = parsed => {
 						className="text-center"
 					/>
 				</div>
-				<div className="col-sm-12 col-md-3 col-lg-3 text-center">
+				{/*<div className="col-sm-12 col-md-3 col-lg-3 text-center">
 					<br />
-					{/*ciudad.length > 0 ? (
+					ciudad.length > 0 ? (
 						<button
 							type="button"
 							className="letsgo2"
@@ -96,8 +96,8 @@ export const MainForm = parsed => {
 						<button type="button" className="letsgo2" onClick={() => setErr(true)}>
 							Vamos a ello
 						</button>
-                    )*/}
-				</div>
+                    )
+				</div>*/}
 			</div>
 		</div>
 	);

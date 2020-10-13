@@ -15,9 +15,9 @@ export const Dish = dish => {
 	return (
 		<div className="container dishcard">
 			<div className="row shadow mb-2 mr-0 bg-white">
-				<div className="col styleimg">
+				<div className="col-sm-12 col-md-6 col-lg-6 styleimg">
 					<img
-						className="img-fluid"
+						className="imagina"
 						src={dish.dishes.img}
 						alt="Este es el ejemplo de un texto alternativo"
 						height="200"
@@ -25,10 +25,12 @@ export const Dish = dish => {
 						//max-width="600"
 					/>
 				</div>
-				<div className="col stylecard">
-					<div className="card-body text-right">
-						<h4>Restaurante: {actions.loadRestaurant(dish.dishes.restaurant_id)}</h4>
-						<h5>Plato: {dish.dishes.name}</h5>
+				<div className="col-sm-12 col-md-6 col-lg-6 stylecard">
+					<div className="card-body ">
+						<h4 className="text-center"> {dish.dishes.name}</h4>
+						<h6>{actions.loadRestaurantName(dish.dishes.restaurant_id)}</h6>
+						<h6>{actions.loadRestaurantAdd(dish.dishes.restaurant_id)}</h6>
+						<h6>{actions.loadRestaurantPhn(dish.dishes.restaurant_id)}</h6>
 
 						{/*<p className="card-text">Descripción: {dish.dishes.description}</p>*/}
 						<Link

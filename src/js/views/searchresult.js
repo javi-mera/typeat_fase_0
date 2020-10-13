@@ -21,7 +21,7 @@ export const Searchresult = () => {
 	return (
 		<div className="base">
 			<Dishresult />
-			<Dishresultcarousel dish_r_all={dish_r_all} />;
+			<Dishresultcarousel dish_r_all={dish_r_all} />
 		</div>
 	);
 };

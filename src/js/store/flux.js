@@ -7,6 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			restaurants: [],
 			formInfo: [],
 			city: [],
+			favorites: [],
 			coordenadas: [],
 			token: ""
 		},
@@ -37,12 +38,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//console.log(rest, "aqui");
 				setStore({ restaurants: rest });
 			},
-			loadRestaurant: rest_id => {
+			loadRestaurantAdd: r_a_id => {
 				const data = getStore();
 				//let filter = data.restaurants.id.find(rest_id);
-				let filter_rest = data.restaurants.filter(restaurant => restaurant.id == rest_id);
+				let filter_rest = data.restaurants.filter(restaurant => restaurant.id == r_a_id);
 				//console.log(filter_rest[0].name);
+				return filter_rest[0].address;
+			},
+
+			loadRestaurantName: r_n_id => {
+				const data = getStore();
+				let filter_rest = data.restaurants.filter(restaurant => restaurant.id == r_n_id);
 				return filter_rest[0].name;
+			},
+
+			loadRestaurantPhn: r_p_id => {
+				const data = getStore();
+				let filter_rest = data.restaurants.filter(restaurant => restaurant.id == r_p_id);
+				return filter_rest[0].phone;
 			},
 
 			getDish: d_id => {
@@ -55,12 +68,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let filter_dishes = data.dishes.filter(dish => dish.restaurant_id == d_r);
 				return filter_dishes;
 			},
-			getRestaurant: r_id => {
-				const data = getStore();
-				let filter_restau = data.restaurants.filter(restaurant => restaurant.id == r_id);
-				return filter_restau;
+			addFavorites: (name, button) => {
+				const store = getStore();
+				const exist = store.favorites.filter(fav => fav === name);
+				if (exist.length === 0) {
+					button.classList.add("active");
+					return setStore({ favorites: [...store.favorites, name] });
+				} else {
+					const exist = store.favorites.filter(item => item != name);
+					button.classList.remove("active");
+					return setStore({ favorites: exist });
+				}
 			},
-
 			mapMarkers: param => {
 				let data = getStore();
 				let city = data.city.filter(city => city.name.toUpperCase() == param.lugar.toUpperCase());
@@ -158,17 +177,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			// Use getActions to call a function within a fuction
 			login: async (email, password) => {
+				let base = require("base-64");
 				let response = await fetch(
 					"https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/login",
 					{
 						method: "POST",
 						headers: {
-							Authorization: "Basic " + encode(email + ":" + password)
+							Authorization: "Basic " + base.encode(email + ":" + password)
 						}
 					}
 				);
 				let respJson = await response.json();
-				//console.log(respJson);
+				console.log(respJson);
 				setStore({ token: respJson.token });
 			}
 		}

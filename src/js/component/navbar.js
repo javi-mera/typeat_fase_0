@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
+import { Favbutton } from "../component/favbutton";
 import "../../styles/navbar.scss";
 
 export const Navbar = () => {
@@ -35,6 +35,7 @@ export const Navbar = () => {
 					</li>
 				</ul>
 			</div>
+			<Favbutton />
 		</header>
 	);
 };

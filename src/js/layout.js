@@ -9,7 +9,6 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Search } from "./views/search";
 import { Searchresult } from "./views/searchresult";
-import { Searchresult_prueba } from "./views/searchresult_prueba";
 import MapView from "./component/react-leaflet";
 import { MarkerIcon } from "./component/react-leaflet-icon";
 

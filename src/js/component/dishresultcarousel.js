@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/dishresult.scss";
+import "../../styles/dishresultcarousel.scss";
 import { Link, useParams } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
 import { Container, Row } from "react-bootstrap";
@@ -13,20 +14,9 @@ export const Dishresultcarousel = hola => {
 	const { theid } = useParams();
 	const dish_id = theid;
 	console.log(dish_id);
-	//let dish_r = actions.getDish(dish_id);
-	//console.log(dish_r);
-
-	//let dish_r_id = dish_r[0].restaurant_id;
-	//let dish_r_all = actions.getDishesOfRest(dish_r_id);
-	//console.log(dish_r_all);
-	//console.log(dish_r_id + "aaa");
-	//let dish_r_tds = actions.getDish();
-	//console.log(dish_r_tds + "bbb");
-	//let dish_rest = actions.getRestaurant(dish_r_id);
-	//console.log(dish_rest);
 
 	return (
-		<Carousel className="carouselmargen" id="carouselfondo">
+		<Carousel className="carouselmargen carousel-inner" id="carouselfondo">
 			{hola.dish_r_all.map((e, index) => {
 				if (e.id == dish_id) {
 					return null;
@@ -34,8 +24,11 @@ export const Dishresultcarousel = hola => {
 					return (
 						<Carousel.Item key={index} className="carouselmargen2">
 							<Container>
-								<Row>
-									<Col md={{ span: 8, offset: 2 }}>
+								<Row className="justify-content-center">
+									<Col
+										md={{ span: 6 }}
+										id="card_carousel"
+										className="shadow p-2 mb-2 bg-white rounded">
 										<Row>
 											<Col>
 												<Image src={e.img} fluid thumbnail className="carrouimg" />
@@ -49,7 +42,7 @@ export const Dishresultcarousel = hola => {
 													<Button
 														variant="warning"
 														size="sm"
-														className="posicion_boton"
+														className="posicion_boton justify-content-center"
 														type="button"
 														onClick={() => {
 															actions.loadDishes();

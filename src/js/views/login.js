@@ -58,14 +58,15 @@ export const Login = () => {
 					</Link>
 				</div>
 				<div className="text-center">
-					<button
-						onClick={e => {
-							e.preventDefault();
-							actions.login(email, password);
-						}}
-						className="btn btn-primary lettersize">
-						Iniciar sesión
-					</button>
+					<Link to="/">
+						<button
+							onClick={e => {
+								actions.login(email, password);
+							}}
+							className="btn btn-primary lettersize">
+							Iniciar sesión
+						</button>
+					</Link>
 				</div>
 				<div className="signNowButton text-center">
 					<Link to="/signup">
