@@ -11,21 +11,6 @@ export const Login = () => {
 	const [password, setPassword] = useState(null);
 	return (
 		<div className="base">
-			<form>
-				<input type="file" onChange={e => setinputimg(e.target.value)} />
-				<button
-					type="submit"
-					onClick={e => {
-						e.preventDefault();
-						console.log(inputimg);
-					}}>
-					Subir
-				</button>
-
-				<form method="get" action={inputimg}>
-					<button type="submit">Download!</button>
-				</form>
-			</form>
 			<form className="align-self-center">
 				<div className="form-group">
 					<label className="lettersize" htmlFor="exampleInputEmail1">

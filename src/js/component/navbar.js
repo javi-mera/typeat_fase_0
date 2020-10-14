@@ -17,25 +17,22 @@ export const Navbar = () => {
 			</Link>
         </nav>*/
 
-		<header className="navbar navbar-inverse navbar-fixed-top bs-docs-nav " role="banner">
+		<header className="navbar navbar-inverse navbar-fixed-top bs-docs-nav btn-group" role="banner">
 			<div className="container col-12 ancho">
 				<div className="col-auto navbar-header">
 					<Link to="/">
 						<h1 className="navbar-brand">TYPEAT</h1>
 					</Link>
 				</div>
-
-				<ul className="col-auto nav navbar-nav navbar-right">
-					<li>
-						<Link to="/login">
-							<button type="button" className="btn btn-warning">
-								Iniciar sesión
-							</button>
-						</Link>
-					</li>
-				</ul>
+				<div className="btn-group">
+					<Link to="/login">
+						<button type="button" className="btn btn-light">
+							Iniciar sesión
+						</button>
+					</Link>
+					<Favbutton />
+				</div>
 			</div>
-			<Favbutton />
 		</header>
 	);
 };

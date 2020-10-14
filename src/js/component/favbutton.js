@@ -6,7 +6,7 @@ export const Favbutton = () => {
 	return (
 		<div>
 			<Dropdown>
-				<Dropdown.Toggle variant="success" id="dropdown-basic">
+				<Dropdown.Toggle variant="warning" id="dropdown-basic">
 					Mis favoritos
 				</Dropdown.Toggle>
 				<Dropdown.Menu>

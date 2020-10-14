@@ -40,7 +40,7 @@ export const Dishresultcarousel = hola => {
 														pathname: "/searchresult/" + e.id
 													}}>
 													<Button
-														variant="warning"
+														variant="success"
 														size="sm"
 														className="posicion_boton justify-content-center"
 														type="button"

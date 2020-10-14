@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import "../../styles/jumbotron.scss";
 import searchIcon from "../../img/icons8-search-50.png";
 import findIcon from "../../img/icons8-country-50.png";
