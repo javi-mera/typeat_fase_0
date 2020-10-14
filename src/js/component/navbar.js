@@ -1,12 +1,12 @@
 import React, { Component, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Favbutton } from "../component/favbutton";
+import { Logoutbutton } from "./logoutbutton";
 import { Context } from "../store/appContext";
 import "../../styles/navbar.scss";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
-	console.log(localStorage);
 	return (
 		<header className="navbar navbar-inverse navbar-fixed-top bs-docs-nav btn-group" role="banner">
 			<div className="container col-12 ancho">
@@ -25,6 +25,7 @@ export const Navbar = () => {
 					) : (
 						<div>
 							<Favbutton />
+							<Logoutbutton />
 							<div />
 						</div>
 					)}

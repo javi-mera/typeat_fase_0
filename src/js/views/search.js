@@ -17,7 +17,7 @@ export const Search = () => {
 	const indexBottom = indexTop - 4;
 	const location = useLocation();
 	const parsed = qs.parse(location.search);
-	console.log(parsed, "parsed");
+	//console.log(parsed, "parsed");
 	useEffect(() => {
 		actions.renderSearchInfo(location.search);
 	}, []);

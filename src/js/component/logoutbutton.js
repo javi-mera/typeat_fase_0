@@ -1,24 +1,26 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import Dropdown from "react-bootstrap/Dropdown";
-import { Link } from "react-router-dom";
-export const Favbutton = () => {
+export const Logoutbutton = () => {
 	const { store, actions } = useContext(Context);
 	return (
 		<div>
 			<Dropdown>
 				<Dropdown.Toggle variant="warning" id="dropdown-basic">
-					Mis favoritos
+					{store.log}
 				</Dropdown.Toggle>
 				<Dropdown.Menu>
-					{store.favorites.map((item, index) => {
-						console.log(item.name);
-						return (
-							<Dropdown.Item className="list-group-item" key={index}>
-								<Link to="/favorites">{item.name}</Link>
-							</Dropdown.Item>
-						);
-					})}
+					<Dropdown.Item>
+						<button
+							onClick={e => {
+								actions.logoutfunction();
+								console.log(e);
+							}}
+							type="button"
+							className="btn">
+							Desconectar
+						</button>
+					</Dropdown.Item>
 				</Dropdown.Menu>
 			</Dropdown>
 		</div>

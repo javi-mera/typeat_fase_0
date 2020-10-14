@@ -35,14 +35,9 @@ export const Login = () => {
 						id="exampleInputPassword1"
 					/>
 				</div>
-				<div className="text-right">
-					<Link to="/">
-						<label className="forgot" htmlFor="exampleCheck1">
-							¿No recuerdas tu contraseña?
-						</label>
-					</Link>
-				</div>
+
 				<div className="text-center">
+					<br />
 					<Link to="/">
 						<button
 							onClick={e => {

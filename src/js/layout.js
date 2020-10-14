@@ -8,6 +8,7 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Search } from "./views/search";
+import { Favorites } from "./views/favorites";
 import { Searchresult } from "./views/searchresult";
 import MapView from "./component/react-leaflet";
 import { MarkerIcon } from "./component/react-leaflet-icon";
@@ -35,6 +36,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/search/">
 							<Search />
+						</Route>
+						<Route exact path="/favorites/">
+							<Favorites />
 						</Route>
 
 						<Route exact path="/searchresult/:theid">
