@@ -7,21 +7,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 			restaurants: [],
 			formInfo: [],
 			city: [],
+			coor: [],
 			favorites: [],
-			coordenadas: [],
 			token: ""
 		},
 		actions: {
-			loadContacts: async () => {
+			loadUsers: async () => {
 				let users_charge = [];
-				let url = "https://jsonplaceholder.typicode.com/posts";
+				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/user";
 				let response = await fetch(url);
 				let respJson = await response.json();
-				//console.log(respJson);
 				users_charge = respJson;
-				//console.log(users_charge);
 				setStore({ users: users_charge });
 			},
+
 			loadCities: async () => {
 				let cities = [];
 				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/city";
@@ -84,15 +83,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let data = getStore();
 				let city = data.city.filter(city => city.name.toUpperCase() == param.lugar.toUpperCase());
 				let city_id = city[0].id;
-				//console.log(city_id);
+				//console.log(city_id, "ciudad");
 				if (param.plato == "") {
 					let filter_restaurant = data.restaurants.filter(restaurant => restaurant.city_id == city_id);
 					let cities_latLong = [];
 					filter_restaurant.forEach(rest => {
-						let coord = { lat: rest.latitude, lng: rest.longitude };
-						cities_latLong.push(coord);
+						cities_latLong.push({ name: rest.name, coord: { lat: rest.latitude, lng: rest.longitude } });
 					});
-					setStore({ coordenadas: cities_latLong });
+					console.log(cities_latLong[0]);
+					setStore({ coor: cities_latLong });
+					console.log(data.coor, "ciudad");
 				} else if (param.plato != "") {
 					let filter_dishes = [];
 					data.dishes.forEach(dish => {
@@ -100,23 +100,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 							filter_dishes.push(dish);
 						}
 					});
-					console.log(filter_dishes);
+					//console.log(filter_dishes);
 					let filter_rest = [];
 					filter_dishes.forEach(dish => {
 						let rest_id = dish.restaurant_id;
-						console.log(rest_id);
+						//console.log(rest_id);
 						let filter_restaurant = data.restaurants.filter(restaurant => restaurant.id == rest_id);
 						filter_rest.push(filter_restaurant);
 					});
-					console.log(filter_rest);
+					//console.log(filter_rest);
 					let cities_latLong = [];
 					filter_rest.forEach(rest => {
-						console.log(rest);
+						//console.log(rest[0].name, "nombre del rest");
 						let coord = { lat: rest[0].latitude, lng: rest[0].longitude };
-						cities_latLong.push(coord);
+						cities_latLong.push({ name: rest[0].name, coord: coord });
 					});
-					setStore({ coordenadas: cities_latLong });
-					console.log(cities_latLong);
+					setStore({ coor: cities_latLong });
+					console.log(data.coor, "ciudad y plato");
 				}
 			},
 			//Modificar: usar Dishes para f(x) renderSearch

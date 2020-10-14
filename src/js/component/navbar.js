@@ -1,22 +1,13 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Favbutton } from "../component/favbutton";
+import { Context } from "../store/appContext";
 import "../../styles/navbar.scss";
 
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
+	console.log(localStorage);
 	return (
-		/*<nav classNameName="navbar navbar-light bg-light">
-			<Link to="/">
-				<img src={Logo} width="30" height="30" alt="" loading="lazy" />
-			</Link>
-
-			<Link to="/login">
-				<button type="button" classNameName="btn btn-info">
-					Iniciar sesión
-				</button>
-			</Link>
-        </nav>*/
-
 		<header className="navbar navbar-inverse navbar-fixed-top bs-docs-nav btn-group" role="banner">
 			<div className="container col-12 ancho">
 				<div className="col-auto navbar-header">
@@ -25,12 +16,18 @@ export const Navbar = () => {
 					</Link>
 				</div>
 				<div className="btn-group">
-					<Link to="/login">
-						<button type="button" className="btn btn-light">
-							Iniciar sesión
-						</button>
-					</Link>
-					<Favbutton />
+					{store.token === "" ? (
+						<Link to="/login">
+							<button type="button" className="btn btn-light">
+								Iniciar sesión
+							</button>
+						</Link>
+					) : (
+						<div>
+							<Favbutton />
+							<div />
+						</div>
+					)}
 				</div>
 			</div>
 		</header>

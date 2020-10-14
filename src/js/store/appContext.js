@@ -22,7 +22,7 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
-			state.actions.loadContacts();
+			state.actions.loadUsers();
 			state.actions.loadDishes();
 			state.actions.loadRestaurants();
 			//state.actions.loadCities();
