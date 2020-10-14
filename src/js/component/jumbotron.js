@@ -1,12 +1,12 @@
 import React from "react";
 import "../../styles/jumbotron.scss";
-import MyInput from "../component/probarauto";
+import MainInput from "./maininput";
 import calamar from "../../img/calamares.jpg";
 
 export const Jumbotron = () => {
 	return (
 		<div className="container-fluid" id="jumbosize">
-			<MyInput />
+			<MainInput />
 		</div>
 	);
 };

@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 import Autocomplete from "react-autocomplete";
 //import "../../styles/jumbotron.scss";
 import "../../styles/search.scss";
-export const MainForm = parsed => {
+export const SecondaryInput = parsed => {
 	//console.log(parsed);
 	const { store, actions } = useContext(Context);
 	const [ciudad, setCiudad] = useState(parsed.info.lugar);
@@ -80,24 +80,6 @@ export const MainForm = parsed => {
 						className="text-center"
 					/>
 				</div>
-				{/*<div className="col-sm-12 col-md-3 col-lg-3 text-center">
-					<br />
-					ciudad.length > 0 ? (
-						<button
-							type="button"
-							className="letsgo2"
-							onClick={() => {
-								actions.renderSearchInfo("?" + "lugar=" + ciudad + "&" + "plato=" + plato);
-								actions.duplicateDishes("?" + "lugar=" + ciudad + "&" + "plato=" + plato);
-							}}>
-							Vamos a ello!
-						</button>
-					) : (
-						<button type="button" className="letsgo2" onClick={() => setErr(true)}>
-							Vamos a ello
-						</button>
-                    )
-				</div>*/}
 			</div>
 		</div>
 	);

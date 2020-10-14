@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import "../../styles/home.scss";
 //import "../../styles/jumbotron.scss";
 import "../../styles/search.scss";
-import { MainForm } from "../component/mainform";
+import { SecondaryInput } from "../component/secondaryinput";
 import { Dish } from "../component/dish";
 import { Context } from "../store/appContext";
 import { Button } from "react-bootstrap";
@@ -16,7 +16,6 @@ export const Search = () => {
 	const [indexTop, setIndexTop] = useState(4);
 	const indexBottom = indexTop - 4;
 	const location = useLocation();
-	//actions.loadSearchInfo(location.search);
 	const parsed = qs.parse(location.search);
 	console.log(parsed, "parsed");
 	useEffect(() => {
@@ -26,7 +25,7 @@ export const Search = () => {
 		return (
 			<div className="base">
 				<div className="jumbotron" id="jumbobackground">
-					<MainForm info={parsed} />
+					<SecondaryInput info={parsed} />
 				</div>
 				<div className="row">
 					<div className="card col-6 base border">
@@ -68,7 +67,7 @@ export const Search = () => {
 		return (
 			<div className="base">
 				<div className="jumbotron" id="jumbobackground">
-					<MainForm info={parsed} />
+					<SecondaryInput info={parsed} />
 				</div>
 				<div className="row">
 					<div className="card col-6 base border">
