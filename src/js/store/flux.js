@@ -70,23 +70,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			addFavorites: (dish, button) => {
 				const store = getStore();
-				console.log(store, "fav");
-				const exist = store.favorites.filter(fav => fav.name === dish.name);
+				console.log(dish, "fav");
+				const exist = store.favorites.filter(fav => fav.id === dish.id);
+
 				if (exist.length === 0) {
 					button.classList.add("active");
 					return setStore({ favorites: [...store.favorites, dish] });
 				} else {
-					const exist = store.favorites.filter(item => item.name != dish.name);
+					const exist = store.favorites.filter(item => item.id != dish.id);
 					button.classList.remove("active");
 					return setStore({ favorites: exist });
 				}
 			},
+
+			removeFavorites: () => {
+				const store = getStore();
+				const exist = store.favorites.filter(item => item.id != dish.id);
+				button.classList.remove("active");
+				return setStore({ favorites: exist });
+			},
+
 			favDishes: () => {
 				const store = getStore();
 				let favDishes = [];
 				store.dishes.forEach(dish => {
 					store.favorites.forEach(fav => {
-						if (fav.name == dish.name) {
+						if (fav.id == dish.id) {
 							favDishes.push(dish);
 						}
 					});

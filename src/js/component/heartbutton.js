@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 export const Heartbutton = l => {
 	const { store, actions } = useContext(Context);
-	//console.log(l);
-	let favs = store.favorites.filter(item => item.name == l.name);
+	console.log(l, "eo");
+	let favs = store.favorites.filter(item => item.id == l.id);
 	if (favs.length === 0) {
 		return (
 			<button

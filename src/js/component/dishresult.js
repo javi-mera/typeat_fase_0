@@ -24,7 +24,7 @@ export const Dishresult = users => {
 							<RatingStar />
 
 							<p>{dish_r[0].description}</p>
-							{store.token === "" ? null : <Heartbutton name={dish_r[0].name} />}
+							{store.token === "" ? null : <Heartbutton name={dish_r[0].name} id={dish_r[0].id} />}
 						</div>
 					</div>
 				</div>

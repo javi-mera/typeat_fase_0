@@ -12,7 +12,7 @@ export const Favbutton = () => {
 				</Dropdown.Toggle>
 				<Dropdown.Menu>
 					{store.favorites.map((item, index) => {
-						console.log(item.name);
+						//console.log(item);
 						return (
 							<Dropdown.Item className="list-group-item" key={index}>
 								<Link to="/favorites">{item.name}</Link>
