@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
-import { Dish } from "../component/dish";
+import { Favidish } from "../component/favdish";
 import "../../styles/home.scss";
 
 export const Favorites = () => {
@@ -15,7 +15,7 @@ export const Favorites = () => {
 			<div className="row">
 				<div className="card col-12 base border">
 					{store.dishes.map((e, index) => {
-						return <Dish key={index} dishes={e} />;
+						return <Favidish key={index} dishes={e} />;
 					})}
 				</div>
 			</div>

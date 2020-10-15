@@ -19,6 +19,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let response = await fetch(url);
 				let respJson = await response.json();
 				users_charge = respJson;
+				//console.log(users_charge, "users");
 				setStore({ users: users_charge });
 			},
 
