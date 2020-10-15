@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const Favbutton = () => {
 	const { store, actions } = useContext(Context);
 	return (
-		<div>
+		<div className="btn-group mr-2">
 			<Dropdown>
 				<Dropdown.Toggle variant="warning" id="dropdown-basic">
 					Mis favoritos

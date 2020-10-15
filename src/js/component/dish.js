@@ -28,9 +28,9 @@ export const Dish = dish => {
 				<div className="col-sm-12 col-md-6 col-lg-6 stylecard">
 					<div className="card-body ">
 						<h4 className="text-center"> {dish.dishes.name}</h4>
-						<h6>{actions.loadRestaurantName(dish.dishes.restaurant_id)}</h6>
-						<h6>{actions.loadRestaurantAdd(dish.dishes.restaurant_id)}</h6>
-						<h6>{actions.loadRestaurantPhn(dish.dishes.restaurant_id)}</h6>
+						<h6 className="text-left">{actions.loadRestaurantName(dish.dishes.restaurant_id)}</h6>
+						<h6 className="text-left">{actions.loadRestaurantAdd(dish.dishes.restaurant_id)}</h6>
+						<h6 className="text-left">{actions.loadRestaurantPhn(dish.dishes.restaurant_id)}</h6>
 
 						{/*<p className="card-text">Descripción: {dish.dishes.description}</p>*/}
 						<Link

@@ -15,7 +15,7 @@ export const Navbar = () => {
 						<h1 className="navbar-brand">TYPEAT</h1>
 					</Link>
 				</div>
-				<div className="btn-group">
+				<div>
 					{store.token === "" ? (
 						<Link to="/login">
 							<button type="button" className="btn btn-light">
@@ -23,10 +23,9 @@ export const Navbar = () => {
 							</button>
 						</Link>
 					) : (
-						<div>
+						<div className="btn-group">
 							<Favbutton />
 							<Logoutbutton />
-							<div />
 						</div>
 					)}
 				</div>

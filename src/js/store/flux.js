@@ -15,7 +15,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			loadUsers: async () => {
 				let users_charge = [];
-				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/user";
+				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io//user";
 				let response = await fetch(url);
 				let respJson = await response.json();
 				users_charge = respJson;
@@ -24,14 +24,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			loadCities: async () => {
 				let cities = [];
-				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/city";
+				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/city";
 				let response = await fetch(url);
 				let respJson = await response.json();
 				cities = respJson;
 				setStore({ city: cities });
 			},
 			loadRestaurants: async () => {
-				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/restaurant";
+				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/restaurant";
 				let response = await fetch(url);
 				let respJson = await response.json();
 				let rest = respJson;
@@ -70,7 +70,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			addFavorites: (dish, button) => {
 				const store = getStore();
-				//console.log(dish, "fav");
+				console.log(store, "fav");
 				const exist = store.favorites.filter(fav => fav.name === dish.name);
 				if (exist.length === 0) {
 					button.classList.add("active");
@@ -137,7 +137,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//Modificar: usar Dishes para f(x) renderSearch
 			loadDishes: async () => {
 				let dishes_charge = [];
-				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/dish";
+				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/dish";
 				let response = await fetch(url);
 				let respJson = await response.json();
 				//console.log(respJson);
@@ -147,13 +147,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			loadSearchInfo: async params => {
 				//console.log(params);
-				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/search" + params;
+				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/search" + params;
 				let response = await fetch(url);
 			},
 			renderSearchInfo: async params => {
 				//console.log(params);
 				let dishes_charge = [];
-				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/render_results" + params;
+				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/render_results" + params;
 				let response = await fetch(url);
 				//console.log(response);
 				let respJson = await response.json();
@@ -164,7 +164,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			duplicateDishes: async params => {
 				let dishes_charge = [];
-				let url = "https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/render_results" + params;
+				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/render_results" + params;
 				let response = await fetch(url);
 				let respJson = await response.json();
 				dishes_charge = respJson.info;
@@ -198,7 +198,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			login: async (email, password) => {
 				let base = require("base-64");
 				let response = await fetch(
-					"https://3000-c3a402e5-126b-4571-8cd1-6a6fe7c9508e.ws-eu01.gitpod.io/login",
+					"https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/login",
 					{
 						method: "POST",
 						headers: {

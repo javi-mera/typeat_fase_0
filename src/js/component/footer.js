@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import "../../styles/home.scss";
+import "../../styles/footer_navbar.scss";
 
 export const Footer = () => (
-	<footer className="footer mt-auto py-1 text-center">
-		<div className="container">
+	<footer className="footer mt-auto text-center">
+		<div className="container adjustcont">
 			<h3 className="d-flex justify-content-center fontcolor">Acerca de Typeat</h3>
 			<hr />
 			<a className="d-flex justify-content-center" href="http://www.4geeksacademy.com">
