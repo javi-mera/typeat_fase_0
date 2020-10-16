@@ -2,14 +2,12 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 export const Heartbutton = l => {
 	const { store, actions } = useContext(Context);
-	//console.log(l);
-	let favs = store.favorites.filter(item => item.name == l.name);
+	let favs = store.favorites.filter(item => item.id == l.id);
 	if (favs.length === 0) {
 		return (
 			<button
 				onClick={event => {
 					actions.addFavorites(l, event.target);
-					//console.log(event.target.classList);
 				}}
 				type="button"
 				id={l.id}
@@ -21,7 +19,6 @@ export const Heartbutton = l => {
 			<button
 				onClick={event => {
 					actions.addFavorites(l, event.target);
-					//console.log(event.target.classList);
 				}}
 				type="button"
 				id={l.id}
@@ -30,4 +27,3 @@ export const Heartbutton = l => {
 		);
 	}
 };
-//["btn", "btn-outline-warning", "fab", "fa-gratipay", "active", value: "btn btn-outline-warning fab fa-gratipay active"]

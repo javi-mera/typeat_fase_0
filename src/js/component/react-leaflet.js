@@ -9,7 +9,6 @@ const MapView = parsed => {
 	useEffect(() => {
 		actions.mapMarkers(parsed.info);
 	}, []);
-	console.log("coordenadas iniciales " + store.coor);
 	return (
 		<div>
 			{store.coor.length === 0 && <div> Mapa cargando</div>}
@@ -20,9 +19,7 @@ const MapView = parsed => {
 						attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
 					/>
 					{store.coor.map((e, index) => {
-						console.log(e.name);
 						let position = e.coord;
-						console.log(position);
 						return (
 							<Marker key={index} position={position}>
 								<Tooltip direction="top" opacity={1}>

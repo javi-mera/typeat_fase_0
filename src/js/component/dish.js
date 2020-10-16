@@ -5,12 +5,7 @@ import "../../styles/dish.scss";
 
 export const Dish = dish => {
 	const { store, actions } = useContext(Context);
-	//const [plato, setPlato] = useState();
-	//console.log(users);
-	//console.log(store.dishes[0]);
-	useEffect(() => {
-		//actions.loadRestaurant(dish.dishes.restaurant_id);
-	}, []);
+	useEffect(() => {}, []);
 
 	return (
 		<div className="container dishcard">

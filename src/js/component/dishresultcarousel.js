@@ -13,7 +13,6 @@ export const Dishresultcarousel = hola => {
 	const { store, actions } = useContext(Context);
 	const { theid } = useParams();
 	const dish_id = theid;
-	console.log(dish_id);
 
 	return (
 		<Carousel className="carouselmargen carousel-inner" id="carouselfondo">
@@ -34,7 +33,7 @@ export const Dishresultcarousel = hola => {
 												<Image src={e.img} fluid thumbnail className="carrouimg" />
 											</Col>
 											<Col id="posicion_nombre_plato">
-												<h3>{e.name}</h3>
+												<h3 className="text-center">{e.name}</h3>
 												<Link
 													to={{
 														pathname: "/searchresult/" + e.id

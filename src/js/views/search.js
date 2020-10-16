@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
 import "../../styles/home.scss";
-//import "../../styles/jumbotron.scss";
 import "../../styles/search.scss";
 import { SecondaryInput } from "../component/secondaryinput";
 import { Dish } from "../component/dish";
@@ -17,7 +16,6 @@ export const Search = () => {
 	const indexBottom = indexTop - 4;
 	const location = useLocation();
 	const parsed = qs.parse(location.search);
-	//console.log(parsed, "parsed");
 	useEffect(() => {
 		actions.renderSearchInfo(location.search);
 	}, []);
@@ -31,7 +29,6 @@ export const Search = () => {
 					<div className="card col-6 base border">
 						{store.dishes.map((e, index) => {
 							if (index + 1 <= indexTop && index + 1 > indexBottom) {
-								//console.log(e, index + "eso");
 								return <Dish key={index} dishes={e} />;
 							}
 						})}

@@ -11,29 +11,10 @@ export const Logoutbutton = () => {
 			<button
 				onClick={e => {
 					actions.logoutfunction();
-					console.log(e);
 				}}
 				type="button"
 				className="btn btn-danger far fa-times-circle"
 			/>
-			{/*<Dropdown>
-				<Dropdown.Toggle variant="dark" id="dropdown-basic">
-					{store.log}
-				</Dropdown.Toggle>
-				<Dropdown.Menu>
-					<Dropdown.Item>
-						<button
-							onClick={e => {
-								actions.logoutfunction();
-								console.log(e);
-							}}
-							type="button"
-							className="btn">
-							Desconectar
-						</button>
-					</Dropdown.Item>
-				</Dropdown.Menu>
-			</Dropdown> */}
 		</div>
 	);
 };

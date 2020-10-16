@@ -5,6 +5,7 @@ import { Search } from "../views/search";
 import { Context } from "../store/appContext";
 import { useLocation } from "react-router-dom";
 import MapView from "./react-leaflet";
+import "../../styles/home.scss";
 const MainInput = () => {
 	const { store, actions } = useContext(Context);
 	const [ciudad, setCiudad] = useState("");
@@ -47,7 +48,7 @@ const MainInput = () => {
 						return <Search info={{ lugar: ciudad, plato: plato }} />;
 					}}
 				/>
-				{err == false ? "" : <p>error</p>}
+				{err == false ? "" : <p className="errorcolor">ES NECESARIO RELLENAR ESTE CAMPO, AMIGO!</p>}
 			</div>
 			<label>¿Qué plato típico te apetece comer?</label>
 			<div className="form-group" id="lugar">

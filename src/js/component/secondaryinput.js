@@ -1,10 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import Autocomplete from "react-autocomplete";
-//import "../../styles/jumbotron.scss";
 import "../../styles/search.scss";
 export const SecondaryInput = parsed => {
-	//console.log(parsed);
 	const { store, actions } = useContext(Context);
 	const [ciudad, setCiudad] = useState(parsed.info.lugar);
 	const [plato, setPlato] = useState(parsed.info.plato);
