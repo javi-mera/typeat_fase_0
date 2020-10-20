@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/jumbotron.scss";
 import MainInput from "./maininput";
-import calamar from "../../img/calamares.jpg";
+import "../../img/burguer.jpg";
 
 export const Jumbotron = () => {
 	return (

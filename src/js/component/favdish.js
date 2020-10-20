@@ -17,7 +17,7 @@ export const Favdish = dish => {
 						className="imagina"
 						src={dish.dishes.img}
 						alt="Este es el ejemplo de un texto alternativo"
-						height="200"
+						height="240"
 						width="372"
 					/>
 				</div>

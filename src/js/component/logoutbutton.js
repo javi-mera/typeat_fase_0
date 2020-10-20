@@ -5,7 +5,7 @@ export const Logoutbutton = () => {
 	const { store, actions } = useContext(Context);
 	return (
 		<div className="btn-group mr-2">
-			<button type="button" className="btn btn-outline-success">
+			<button type="button" className="btn btn-outline-light">
 				{store.log}
 			</button>
 			<button

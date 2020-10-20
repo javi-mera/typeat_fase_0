@@ -31,7 +31,7 @@ const MainInput = () => {
 							return (
 								<div
 									key={item.id + Math.random()}
-									style={{ backgroundColor: highlighted ? "#eee" : "transparent" }}>
+									style={{ backgroundColor: highlighted ? "#eee" : "transparent", color: "black" }}>
 									{item.name}
 								</div>
 							);
@@ -63,7 +63,7 @@ const MainInput = () => {
 							return (
 								<div
 									key={item.id + Math.random()}
-									style={{ backgroundColor: highlighted ? "#eee" : "transparent" }}>
+									style={{ backgroundColor: highlighted ? "#eee" : "transparent", color: "black" }}>
 									{item.name}
 								</div>
 							);
@@ -84,7 +84,7 @@ const MainInput = () => {
 					}}>
 					<button
 						type="button"
-						className="letsgo1"
+						className="letsgo1 btn btn-dark-green"
 						onClick={() => {
 							setErr(false);
 						}}>
@@ -92,7 +92,7 @@ const MainInput = () => {
 					</button>
 				</Link>
 			) : (
-				<button type="button" className="letsgo1" onClick={() => setErr(true)}>
+				<button type="button" className="letsgo1 btn btn-dark-green" onClick={() => setErr(true)}>
 					Vamos a ello!
 				</button>
 			)}

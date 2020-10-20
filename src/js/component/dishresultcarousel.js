@@ -32,7 +32,7 @@ export const Dishresultcarousel = hola => {
 											<Col>
 												<Image src={e.img} fluid thumbnail className="carrouimg" />
 											</Col>
-											<Col id="posicion_nombre_plato">
+											<Col id="posicion_nombre_plato" className="border-left">
 												<h3 className="text-center">{e.name}</h3>
 												<Link
 													to={{
@@ -40,13 +40,12 @@ export const Dishresultcarousel = hola => {
 													}}>
 													<Button
 														variant="success"
-														size="sm"
 														className="posicion_boton justify-content-center"
 														type="button"
 														onClick={() => {
 															actions.loadDishes();
 														}}>
-														Cuéntame más
+														Más info
 													</Button>
 												</Link>
 											</Col>

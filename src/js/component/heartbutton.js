@@ -11,7 +11,8 @@ export const Heartbutton = l => {
 				}}
 				type="button"
 				id={l.id}
-				className="btn btn-outline-warning fab fa-gratipay"
+				//className="btn smallbtn btn-outline-warning fab fa-gratipay"
+				className="btn smallbtn btn-yellow fab fa-gratipay"
 			/>
 		);
 	} else {
@@ -22,7 +23,8 @@ export const Heartbutton = l => {
 				}}
 				type="button"
 				id={l.id}
-				className="btn btn-outline-warning fab fa-gratipay active"
+				//className="btn smallbtn btn-outline-warning fab fa-gratipay active"
+				className="btn smallbtn btn-yellow fab fa-gratipay active"
 			/>
 		);
 	}

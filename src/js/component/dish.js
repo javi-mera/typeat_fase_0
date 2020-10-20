@@ -15,7 +15,7 @@ export const Dish = dish => {
 						className="imagina"
 						src={dish.dishes.img}
 						alt="Este es el ejemplo de un texto alternativo"
-						height="200"
+						height="212"
 						width="372"
 						//max-width="600"
 					/>
