@@ -1,19 +1,26 @@
 import React, { Component } from "react";
+import "../../styles/home.scss";
+import "../../styles/footer_navbar.scss";
 
 export const Footer = () => (
-	<footer className="footer mt-auto py-3 text-center">
-		<div className="container">
-			<h3>Acerca de Typeat</h3>
-			<a href="http://www.4geeksacademy.com">Acerca de Typeat</a>
+	<footer className="footer mt-auto text-center">
+		<div className="container adjustcont">
+			<h3 className="d-flex justify-content-center fontcolor">Acerca de Typeat</h3>
 			<hr />
-			<a href="http://www.4geeksacademy.com">Prensa</a>
-			<hr />
-			<a href="http://www.4geeksacademy.com">Anúnciate con nosotros</a>
-			<hr />
-			<a href="http://www.4geeksacademy.com">Unirse</a>
+			<a className="d-flex justify-content-center" href="http://www.4geeksacademy.com">
+				Acerca de Typeat
+			</a>
+
+			<a className="d-flex justify-content-center" href="http://www.4geeksacademy.com">
+				Anúnciate con nosotros
+			</a>
+
+			<a className="d-flex justify-content-center" href="http://www.4geeksacademy.com">
+				Unirse
+			</a>
 			<hr />
 		</div>
-		<p>
+		<p id="colorp">
 			Made with <i className="fa fa-heart text-danger" /> by{" "}
 			<a href="http://www.4geeksacademy.com">
 				Javi

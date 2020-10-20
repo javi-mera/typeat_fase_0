@@ -1,9 +1,6 @@
 import React from "react";
+import "../../styles/home.scss";
 
 export const Linea = () => {
-	return (
-		<h2 className="linea">
-			<span>¿Cómo funciona Typeat?</span>
-		</h2>
-	);
+	return <h2>¿Cómo funciona Typeat?</h2>;
 };
