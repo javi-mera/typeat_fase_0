@@ -14,7 +14,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			loadUsers: async () => {
 				let users_charge = [];
-				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/user";
+				let url = process.env.BACKEND_URL + "/user";
 				let response = await fetch(url);
 				let respJson = await response.json();
 				users_charge = respJson;
@@ -23,14 +23,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			loadCities: async () => {
 				let cities = [];
-				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/city";
+				let url = process.env.BACKEND_URL + "/city";
 				let response = await fetch(url);
 				let respJson = await response.json();
 				cities = respJson;
 				setStore({ city: cities });
 			},
 			loadRestaurants: async () => {
-				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/restaurant";
+				let url = process.env.BACKEND_URL + "/restaurant";
 				let response = await fetch(url);
 				let respJson = await response.json();
 				let rest = respJson;
@@ -122,19 +122,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			loadDishes: async () => {
 				let dishes_charge = [];
-				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/dish";
+				let url = process.env.BACKEND_URL + "/dish";
 				let response = await fetch(url);
 				let respJson = await response.json();
 				dishes_charge = respJson;
 				setStore({ dishes: dishes_charge });
 			},
 			loadSearchInfo: async params => {
-				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/search" + params;
+				let url = process.env.BACKEND_URL + "/search" + params;
 				let response = await fetch(url);
 			},
 			renderSearchInfo: async params => {
 				let dishes_charge = [];
-				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/render_results" + params;
+				let url = process.env.BACKEND_URL + "/render_results" + params;
 				let response = await fetch(url);
 				let respJson = await response.json();
 				dishes_charge = respJson.info;
@@ -142,7 +142,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			duplicateDishes: async params => {
 				let dishes_charge = [];
-				let url = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/render_results" + params;
+				let url = process.env.BACKEND_URL + "/render_results" + params;
 				let response = await fetch(url);
 				let respJson = await response.json();
 				dishes_charge = respJson.info;
@@ -171,7 +171,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			register: async (email, password) => {
-				const urlLogin = "https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/register";
+				const urlLogin = process.env.BACKEND_URL + "/register";
 				var myHeaders = new Headers();
 				myHeaders.append("Content-Type", "application/json");
 				var requestOptions = {
@@ -191,15 +191,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			login: async (email, password) => {
 				let base = require("base-64");
-				let response = await fetch(
-					"https://3000-c3356348-db7b-4863-a61f-9b88ccdbbac8.ws-eu01.gitpod.io/login",
-					{
-						method: "POST",
-						headers: {
-							Authorization: "Basic " + base.encode(email + ":" + password)
-						}
+				let response = await fetch(process.env.BACKEND_URL + "/login", {
+					method: "POST",
+					headers: {
+						Authorization: "Basic " + base.encode(email + ":" + password)
 					}
-				);
+				});
 				setStore({ log: email });
 				let respJson = await response.json();
 				setStore({ token: respJson.token });
