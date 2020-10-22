@@ -1,5 +1,5 @@
 const getState = ({ getStore, getActions, setStore }) => {
-	let BACKEND_URL = "https://typeat-back.herokuapp.com";
+	let BACKEND_URL = process.env.BACKEND_URL;
 	return {
 		store: {
 			users: [],
