@@ -6,7 +6,6 @@ import { Heartbutton } from "../component/heartbutton";
 
 export const Favdish = dish => {
 	const { store, actions } = useContext(Context);
-	useEffect(() => {}, []);
 
 	let dish_r = actions.getDish(dish.dishes.id);
 	return (

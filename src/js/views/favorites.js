@@ -16,6 +16,7 @@ export const Favorites = () => {
 			<div className="row justify-content-center">
 				<div className="card col-6 base border">
 					{store.dishes.map((e, index) => {
+						console.log("dishes", e);
 						return <Favdish key={index} dishes={e} />;
 					})}
 				</div>
